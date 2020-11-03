@@ -1,6 +1,13 @@
 import React from 'react';
 
 
+const initialProductState = {
+    items: [],
+    totalPrice: 0,
+};
+
+const addItems = (items = [], payload)
+
 
 const Basket = () => {
     return (
