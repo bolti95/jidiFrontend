@@ -4,15 +4,23 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <nav className = "navContainer">
+        <div>
 
-            <p> <Link to="/">Shop</Link></p> 
+        <header>
+                <nav className="navContainer">
+                <h2 className="title">JIDI ELECTRONICS</h2>
 
-            <p> <Link to="basket">Basket</Link></p>
+                <p className="Link1"> <Link to="/">Shop</Link></p> 
 
-            <p> <Link to="checkout">Checkout</Link></p>
+                <p className="Link2"> <Link to="basket">Basket</Link></p>
 
-        </nav>
+                <p className="Link3"> <Link to="checkout">Checkout</Link></p>
+
+                </nav>
+        </header>
+        </div>
+
+
     )
 }
 
