@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
+import Homepage from './components/Homepage'
 import Basket from './components/Basket';
 import Checkout from './components/Checkout';
 import './App.css';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
-class App extends Components {
+class App extends Component {
   render () {
     return (
 
@@ -20,7 +21,7 @@ class App extends Components {
           <BrowserRouter>
             <Nav />
               <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/" component={Homepage}/>
                 <Route exact path="/basket" component={Basket}/>
                 <Route exact path="checkout" component= {Checkout}/>
               </Switch>
