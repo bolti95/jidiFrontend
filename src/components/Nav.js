@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getNumbers } from '../actions/getAction';
 
-const Nav = () => {
+const Nav = (props) => {
+
+    console.log(props);
+
+    useEffect(() => {
+        getNumbers();
+    }, [])
+
     return (
         <div>
 
@@ -14,7 +23,7 @@ const Nav = () => {
                 <ion-icon name="home-outline"></ion-icon>
                 </Link></p> 
 
-                <p > <Link to="basket">Basket
+                    <p > <Link to="basket">Basket <span>{props.basketProps.basketNumbers}</span>
                 <ion-icon name="basket-outline" className="basketIcon"></ion-icon>
                 </Link></p>
 
@@ -31,4 +40,8 @@ const Nav = () => {
     )
 }
 
-export default Nav;
+const mapStateToProps = state => ({
+    basketProps: state.basketState
+})
+
+export default connect(mapStateToProps, { getNumbers })(Nav);

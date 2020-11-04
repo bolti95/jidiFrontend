@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import { addToBasket } from '../actions/addAction';
+import { addBasket } from '../actions/addAction';
 
 
-const Home = () => {
-    const [basketNumbers, setBasketNumbers] = useState(0)
 
-    const addToBasket = () => {
-        setBasketNumbers(basketNumbers + 1);
-        console.log("Button Clicked");
-    }
+const Home = (props) => {
+
+
+
+    console.log(props);
 
 
         return (
@@ -22,11 +21,12 @@ const Home = () => {
                 
                 </div>
 
-                <h2>Current Numbers in Basket {basketNumbers}</h2>
+                <h2>Current Numbers in Basket </h2>
 
             </div>
 
         )
 
 }
-export default Home;
+export default connect(null, { addBasket })(Home);
+

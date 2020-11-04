@@ -10,3 +10,5 @@ export const addBasket = (productName) => {
         });
     }
 }
+
+// export default
