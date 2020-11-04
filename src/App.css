@@ -47,6 +47,15 @@ header {
 
 }
 
+
+.basketIcon ion-icon {
+  vertical-align: bottom;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+
+
 a {
   color: black;
   text-decoration: none;

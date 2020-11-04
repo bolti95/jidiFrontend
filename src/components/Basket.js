@@ -15,7 +15,7 @@ const Basket = () => {
 
                 <div className="basketContainer">
                     <div className="basketViewContainer">
-                        <p>helloo code going in </p>
+                        <p>This is the cart page </p>
                     </div>
 
              

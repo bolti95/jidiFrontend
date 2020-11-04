@@ -10,11 +10,18 @@ const Nav = () => {
                 <nav className="navContainer">
                 <h2 className="title">JIDI ELECTRONICS</h2>
 
-                <p className="Link1"> <Link to="/">Shop</Link></p> 
+                <p> <Link to="/">Shop
+                <ion-icon name="home-outline"></ion-icon>
+                </Link></p> 
 
-                <p className="Link2"> <Link to="basket">Basket</Link></p>
+                <p > <Link to="basket">Basket
+                <ion-icon name="basket-outline" className="basketIcon"></ion-icon>
+                </Link></p>
 
-                <p className="Link3"> <Link to="checkout">Checkout</Link></p>
+                <p> <Link to="checkout">Checkout
+                <ion-icon name="card-outline"></ion-icon>
+                
+                </Link></p>
 
                 </nav>
         </header>
