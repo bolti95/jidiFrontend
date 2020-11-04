@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import '../App.css';
-import Desktop from './images/desktop.jpg'
-import Laptop from './images/laptop.jpg'
-import Iphone from './images/iphone.jpg'
-import Phonecase from './images/phonecase.jpg'
-import Fitbit from './images/fitbit.jpg'
+import Desktop from './images/desktop.jpg';
+import Laptop from './images/laptop.jpg';
+import Iphone from './images/iphone.jpg';
+import Phonecase from './images/phonecase.jpg';
+import Fitbit from './images/fitbit.jpg';
 import { connect } from 'react-redux';
 import { addToBasket } from '../actions/addAction';
 
 
 const Home = () => {
-    const [basketNumbers, setBasketNumbers] = useState(0)
-
-    const addToBasket = () => {
-        setBasketNumbers(basketNumbers + 1);
-        console.log("Button Clicked");
-    }
     
     return(
         <div className="container">
