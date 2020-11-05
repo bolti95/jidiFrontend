@@ -3,10 +3,12 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getNumbers } from '../actions/getAction';
+import store from '../store';
 
 const Nav = (props) => {
-
-    console.log(props);
+    console.log(props)
+    const state = store.getState()
+    // console.log(state.basketReducer);
 
     useEffect(() => {
         getNumbers();
@@ -43,5 +45,7 @@ const Nav = (props) => {
 const mapStateToProps = state => ({
     basketProps: state.basketState
 })
+
+
 
 export default connect(mapStateToProps, { getNumbers })(Nav);

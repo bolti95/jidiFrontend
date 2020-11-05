@@ -1,2 +1,29 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    display: flex;  
+    margin: auto;
+  }
 
+div {
+    margin: auto;
+    padding: 0;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* margin-top: 50px;
+    padding-bottom: 100px; */
+    margin: auto;
+}
+
+.image {
+    margin-right: 20px;
+    margin-left: 20px;
+    position: relative;
+    overflow: hidden; 
+}
