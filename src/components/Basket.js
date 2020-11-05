@@ -70,11 +70,9 @@ function Basket ({basketProps}) {
                             <h4 classname="basketTotalTitle">Basket Total</h4>
                             <h4 classname="basketTotal">{basketProps.basketCost}, 00</h4>
                         
-                        </div>
-
-                        
-                    </div>
-                    </div>
+                    </div>           
+              </div>
+        </div>
 
 
     )
