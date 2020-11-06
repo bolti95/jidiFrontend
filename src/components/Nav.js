@@ -29,10 +29,6 @@ const Nav = (props) => {
                 <ion-icon name="basket-outline" className="basketIcon"></ion-icon>
                 </Link></p>
 
-                <p> <Link to="checkout">Checkout
-                <ion-icon name="card-outline"></ion-icon>
-                
-                </Link></p>
 
                 </nav>
         </header>

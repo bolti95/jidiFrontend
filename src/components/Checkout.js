@@ -1,35 +1,49 @@
 //hello world
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
+import { cancelOrder } from '../actions/cancelOrder';
+import { showTotal } from '../actions/showTotal';
 import '../components/Checkout.css';
 
 
 
 class Checkout extends Component {
+   
     render() {
+        
+        const { basketCost } = this.props
+        const { basketTotal } = this.props
     return (
                 <div className="container">
                    <form>
                      <h1>CHECKOUT</h1>
+                     <h4>Please fill out the form with the correct details</h4>
                      <div className="info">
                 
-                      <label className="customer-id" for="id">Customer ID:</label>
-                      <input type="text" name="customer-id"/>
+                   
             
                       <label className="customer-name" for="customerName">Name:</label>
                       <input type="text" name="customer-name"/>
            
-                      <label className="item" for="item">Item:</label>
-                      <input type="text" name="item"/>
                 
-                      <label className="sale-amount" for="saleAmount">Total Amount:</label>
+                
+                    <label className="sale-amount" for="saleAmount"></label>
+                    <h1>Total Amount: {basketCost}</h1>
                       <input type="text" name="sale-amount"/>
                       
                       <br/>
-                      <input type="submit" value="submit"></input>
-                     {/* <h4 classname="basketTotal">{basketProps.basketCost}, 00</h4> */}
-                     
+                  
+                      <div className="payNowBtn">
+                      <button type="submit" value="payNow">Pay Now</button>
+                      </div>
+                        
+                      <div className="cancelOrderBtn">
+                        <button type="submit" value="cancel" onClick={() => cancelOrder('cancel', basketTotal)}>Cancel Order</button>
+                        
+                      </div>
+                       
                      </div>
+                    
                 </form>
             </div>
                 
@@ -37,4 +51,12 @@ class Checkout extends Component {
    } 
 }
 
-export default Checkout;
+const mapStateToProps = state => ({
+   
+    basketCost: state.basketState.basketCost
+ 
+
+    //comes from our index.js combined reducer, everything comes from here
+});
+
+export default connect(mapStateToProps, { cancelOrder })(Checkout);
