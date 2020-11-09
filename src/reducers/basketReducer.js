@@ -103,7 +103,7 @@ export default (state = initialState, action) => {
                 newBasketCost = state.basketCost - state.products[action.payload].price
             }
   
-            productSelected.numbers -= 1;
+            // productSelected.numbers -= 1;
             return {
                 ...state,
                 basketCost: state.basketCost - state.products[action.payload].price,
