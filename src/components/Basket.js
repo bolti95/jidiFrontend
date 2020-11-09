@@ -64,14 +64,25 @@ function Basket ({basketProps, productQuantity}) {
                
                     <ion-icon onClick={() => productQuantity('increase', product.tagName)}className="increase" name="arrow-forward-circle-outline"></ion-icon>
                 </div>
-                  
                 <div className="total">£{product.numbers * product.price}, 00</div>
-          
             </Fragment>
-        
-
     )
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // console.log(product);
 
     return (
@@ -102,6 +113,9 @@ function Basket ({basketProps, productQuantity}) {
 
     )
 }
+
+
+
 
 const mapStateToProps = state => ({
     basketProps: state.basketState
