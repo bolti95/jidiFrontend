@@ -43,6 +43,8 @@ const initialState = {
             numbers: 0,
             inBasket: false            
           }
+
+        
      
     }
 };        
