@@ -5,6 +5,20 @@ import { cancelOrder } from '../actions/cancelOrder';
 import { showTotal } from '../actions/showTotal';
 import '../components/Checkout.css';
 
+// THIS IS HOW DEAN SHOWED US TO CONNECT BACKEND
+// const addToBasket = () => {
+
+//     fetch("http://localhost:3005/basket/add", {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json'
+            
+//         }, 
+//         body: JSON.stringify({})
+
+//     }) 
+
+// }
 
 
 class Checkout extends Component {
@@ -25,11 +39,19 @@ class Checkout extends Component {
                       <label className="customer-name" for="customerName">Name:</label>
                       <input type="text" name="customer-name"/>
            
+            
+                      <label className="customer-name" for="customerName">Email Address:</label>
+                      <input type="text" name="customer-name"/>
+           
+            
+                      <label className="customer-name" for="customerName">Card Number:</label>
+                      <input type="text" name="customer-name"/>
+           
                 
                 
-                    <label className="sale-amount" for="saleAmount"></label>
-                    <h1>Total Amount: {basketCost}</h1>
-                      <input type="text" name="sale-amount"/>
+                      <label className="sale-amount" for="saleAmount"></label>
+                        <h1>Total Amount: £{basketCost}</h1>
+                    
                       
                       <br/>
                   
@@ -53,7 +75,8 @@ class Checkout extends Component {
 
 const mapStateToProps = state => ({
    
-    basketCost: state.basketState.basketCost
+    basketCost: state.basketState.basketCost,
+    basketState: state.basketState.basketState
  
 
     //comes from our index.js combined reducer, everything comes from here
