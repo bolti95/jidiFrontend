@@ -49,10 +49,14 @@ class Checkout extends Component {
 
         this.setState({orderNumber});
     }
+    
 
+
+   
     render() {
         console.log(this.state.cardNumber)
         
+
 
         return (
                 <div className="container">
@@ -84,7 +88,15 @@ class Checkout extends Component {
                             <button type="submit" value="cancel" onClick={() => cancelOrder('cancel', this.props.basketTotal)}>Cancel Order</button>
                         </div>
                     </div>
+
+      //   const { basketCost } = this.props
+      //   const { basketTotal } = this.props
+
+    
+
                 </form>
+                     <h1>{this.state.h1}</h1>
+                     <h2>{this.state.h2}</h2>
             </div>
         )
     }
@@ -100,6 +112,7 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { cancelOrder })(Checkout);
+
 
 
 {/* const { customerName } = this.props.customer.name */}
@@ -123,3 +136,27 @@ export default connect(mapStateToProps, { cancelOrder })(Checkout);
     // //    this.customer.name = event.target.value
     // }
   
+
+
+//code for connecting with backend
+
+// async joinRoom(event) {
+//    event.preventDefault();
+
+//    let response = await fetch('http://localhost:3001/room/join', {
+//        method: 'POST',
+//        headers: {
+//            'content-type': 'application/json'
+//        },
+//        body: JSON.stringify({ roomKey: this.state.inputValue })
+//    });
+
+//    response = await response.json();
+
+//    if (response.err) {
+//        this.setState({ message: response.err });
+//        return;
+//    }
+
+//    this.state.setRoomKey(response.key);
+// }
