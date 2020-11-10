@@ -28,12 +28,14 @@ class Checkout extends Component {
       emailInputText: '',
       h1: '',
       h2: '',
+      h3: ''
    }
+
    onSubmit = (event) => {
       event.preventDefault()
       this.setState({
          h1: this.state.nameInputText,
-         h2: this.state.emailInputText
+         h2: this.state.emailInputText,
       })
    }
 
@@ -80,12 +82,22 @@ class Checkout extends Component {
                       {/* <div className="cancelOrderBtn">
                         <button type="submit" value="cancel" onClick={() => cancelOrder('cancel', basketTotal)}>Cancel Order</button>
                       </div> */}
-                       
+
+                      <br></br> <br></br> <br></br>
+
+  
                      </div>
                      
                 </form>
+
+
                      <h1>{this.state.h1}</h1>
                      <h2>{this.state.h2}</h2>
+                  
+
+                     {/* THE ABOVE ADD THE NAME AND EMAIL ADDRESS ONTO PAGE - NEED A THANKS MESSAGE */ } 
+
+                     
             </div>
                 
       )
