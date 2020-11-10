@@ -63,21 +63,7 @@ class Checkout extends Component {
     }
     
   
-   // onSubmit = (event) => {
-   //    event.preventDefault()
-   //    this.setState({
-   //       h1: this.state.nameInputText,
-   //       h2: this.state.emailInputText,
-   //    })
-   // }
 
-   // nameHandler = e => {
-   //    this.setState({ nameInputText: e.target.value });
-   // };
-
-   // emailHandler = e => {
-   //    this.setState({ emailInputText: e.target.value });
-   // };
    
     render() {
         // console.log(this.state.cardNumber)
@@ -115,9 +101,8 @@ class Checkout extends Component {
                         </div>
                     </div>
 
- 
 
-    
+
 
                 </form>
 
@@ -140,6 +125,7 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { cancelOrder })(Checkout);
+
 
 
 
