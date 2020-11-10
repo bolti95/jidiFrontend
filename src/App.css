@@ -174,3 +174,7 @@ products img {
 .basketTotal {
   width: 30%
 }
+
+.navContainer>.shop>.homeIcon {
+  padding: 20px;
+}

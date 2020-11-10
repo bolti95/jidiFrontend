@@ -53,7 +53,7 @@ class Checkout extends Component {
                 customerName: this.state.customerName,
                 Items: this.props.basketState.products,
                 SaleAmount: this.props.basketCost,
-                email: this.state.emial,
+                email: this.state.email,
                 cardNumber: this.state.cardNumber, // make sure these values are correct,
           
             })
