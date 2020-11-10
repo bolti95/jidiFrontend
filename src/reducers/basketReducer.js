@@ -102,19 +102,15 @@ export default (state = initialState, action) => {
             }
             
         case DECREASE_QUANTITY:
-            productSelected = { ...state.products[action.payload]}
-
+            productSelected = { ...state.products[action.payload]};
             let newBasketCost = 0;
-
             if( productSelected.numbers === 0) { 
                 productSelected.numbers = 0;
                 newBasketCost = state.basketCost
             } else {
                 productSelected.numbers -= 1;
                 newBasketCost = state.basketCost - state.products[action.payload].price
-            }
-  
-            // productSelected.numbers -= 1;
+            } 
             return {
                 ...state,
                 basketCost: state.basketCost - state.products[action.payload].price,

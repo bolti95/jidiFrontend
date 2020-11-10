@@ -62,7 +62,7 @@ class Checkout extends Component {
         this.setState({orderNumber});
     }
     
-
+  
 
    
     render() {
@@ -103,6 +103,7 @@ class Checkout extends Component {
 
 
 
+
                 </form>
 
                 <h2>{this.state.thankYou}</h2>
@@ -127,26 +128,5 @@ export default connect(mapStateToProps, { cancelOrder })(Checkout);
 
 
 
-{/* const { customerName } = this.props.customer.name */}
-
-        // const { basketCost } = this.props
-        // const { basketTotal } = this.props
-        // const { customerProps } = this.props
-        // const { customerName } = this.props.name;
-        // console.log(customerProps)
-
-
-
-        //    handleChange = ({target:{value}}) => {
-//        const { createCustomerOrder } = this.props;
-//        createCustomerOrder(value)
-//    }
-
-
-    // updateCustomerName(event) {
-    //    this.props.createCustomerOrder(event.target.value)
-    // //    this.customer.name = event.target.value
-    // }
-  
 
 
