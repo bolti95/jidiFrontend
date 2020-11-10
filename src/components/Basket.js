@@ -32,14 +32,16 @@ function Basket ({basketProps, productQuantity}) {
     })
 
     const productImages =(product) => {
-            if (product.tagName === 'laptop') {
+            if (product.tagName === 'desktop') {
+                return Desktop;
+            } else if (product.tagName === 'laptop') {
                 return Laptop;
             } else if (product.tagName === 'iphone') {
-                return Iphone
+                return Iphone;
             } else if (product.tagName === 'phonecase') {
-                return Phonecase
+                return Phonecase;
             } else if (product.tagName === 'fitbit') {
-                return Fitbit
+                return Fitbit;
             } 
             
     }

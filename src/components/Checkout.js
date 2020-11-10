@@ -89,12 +89,9 @@ class Checkout extends Component {
                         </div>
                     </div>
 
-      //   const { basketCost } = this.props
-      //   const { basketTotal } = this.props
 
-    
 
-                </form>
+                   </form>
                      <h1>{this.state.h1}</h1>
                      <h2>{this.state.h2}</h2>
             </div>
