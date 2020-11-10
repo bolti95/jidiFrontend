@@ -11,16 +11,19 @@ class Checkout extends Component {
         super();
 
         this.state = {
-            name: '',
+            customerName: '',
             email: '',
             cardNumber: '',
+            h1: '',
+            h2: '',
+            thankYou: ''
            
             // orderNumber: ''
         }
     }
 
     handleNameChange = (event) => {
-        this.setState({name: event.target.value});
+        this.setState({customerName: event.target.value});
     }
     
     handleEmailChange = (event) => {
@@ -32,15 +35,24 @@ class Checkout extends Component {
         this.setState({cardNumber: event.target.value});
     }
 
-    createOrder = async () => {
-        let orderNumber = await fetch("http://localhost:3005/basket/checkout", { // watch this route, will need to be the same in the back
+    createOrder = async (event) => {
+        // event.preventDefault()
+        this.setState({
+
+            h1: this.state.customerName,
+            h2: this.state.email,
+            thankYou: 'thank you'
+        })
+        let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             }, 
             body: JSON.stringify({
     
-                name: this.state.name,
+                customerName: this.state.customerName,
+                Items: this.props.basketState.products,
+                SaleAmount: this.props.basketCost,
                 email: this.state.emial,
                 cardNumber: this.state.cardNumber, // make sure these values are correct,
           
@@ -54,13 +66,13 @@ class Checkout extends Component {
 
    
     render() {
-        console.log(this.state.cardNumber)
-        
+        // console.log(this.state.cardNumber)
+        // console.log(this.body)
 
 
         return (
                 <div className="container">
-                    <form>
+                    <form className="customerInfo">
                         <h1>CHECKOUT</h1>
                         <h4>Please fill out the form with the correct details</h4>
 
@@ -91,9 +103,12 @@ class Checkout extends Component {
 
 
 
-                   </form>
-                     <h1>{this.state.h1}</h1>
-                     <h2>{this.state.h2}</h2>
+                </form>
+
+                <h2>{this.state.thankYou}</h2>
+                <h1>{this.state.h1}</h1>
+                <h2>{this.state.h2}</h2>
+
             </div>
         )
     }
@@ -135,25 +150,3 @@ export default connect(mapStateToProps, { cancelOrder })(Checkout);
   
 
 
-//code for connecting with backend
-
-// async joinRoom(event) {
-//    event.preventDefault();
-
-//    let response = await fetch('http://localhost:3001/room/join', {
-//        method: 'POST',
-//        headers: {
-//            'content-type': 'application/json'
-//        },
-//        body: JSON.stringify({ roomKey: this.state.inputValue })
-//    });
-
-//    response = await response.json();
-
-//    if (response.err) {
-//        this.setState({ message: response.err });
-//        return;
-//    }
-
-//    this.state.setRoomKey(response.key);
-// }
