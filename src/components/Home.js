@@ -42,6 +42,14 @@ const Home = (props) => {
 
                     <h2>Current Numbers in Basket </h2> */}
 
+                <div className="image">
+                    <img src={Desktop} alt="desktop" />
+                    <h2>HP 22-df0005na 21.5" All-in-One PC - Intel® Core™ i3, 128 GB SSD</h2>
+                    <h3>Want a desktop computer that doesn't take up loads of space? The HP 22-df0005na 21.5" All-in-One PC is here for you. By cramming all the technical bits of a traditional tower computer into a single monitor, you get all the specs and power you need with half the hardware.</h3>
+                    <h3>£529.00</h3>
+                    <a onClick={() => props.addBasket("desktop")} className="addToCart" href="#">Add to Cart</a>
+                </div>
+
                 
                 <div className="image">
                     <img src={Laptop} alt="laptop" />
