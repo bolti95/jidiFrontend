@@ -101,10 +101,7 @@ class Checkout extends Component {
                         </div>
                     </div>
 
-      //   const { basketCost } = this.props
-      //   const { basketTotal } = this.props
 
-    
 
                 </form>
 
@@ -153,25 +150,3 @@ export default connect(mapStateToProps, { cancelOrder })(Checkout);
   
 
 
-//code for connecting with backend
-
-// async joinRoom(event) {
-//    event.preventDefault();
-
-//    let response = await fetch('http://localhost:3001/room/join', {
-//        method: 'POST',
-//        headers: {
-//            'content-type': 'application/json'
-//        },
-//        body: JSON.stringify({ roomKey: this.state.inputValue })
-//    });
-
-//    response = await response.json();
-
-//    if (response.err) {
-//        this.setState({ message: response.err });
-//        return;
-//    }
-
-//    this.state.setRoomKey(response.key);
-// }

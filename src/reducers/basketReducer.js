@@ -5,6 +5,15 @@ const initialState = {
     basketNumbers: 0,
     basketCost: 0,
     products: {
+        desktop: {
+
+            name: "HP 22-df0005na 21.5 All-in-One PC - Intel® Core™ i3, 128 GB SSD",
+            tagName: 'desktop',
+             price: 529.00,
+             numbers: 0,
+             inBasket: false
+     
+         }, 
         laptop: {
 
             name: "APPLE 13.3",
