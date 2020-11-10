@@ -1,23 +1,94 @@
-html {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    display: flex;  
-    margin: auto;
+    /* display: flex;   */
+    /* margin: auto; */
   }
 
-div {
+/* div {
     margin: auto;
     padding: 0;
+} */
+
+
+.product {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* align-items: space-between; */
+    padding-top: 25px;
+    margin: 2% 25% 2% 25%;
+
+
 }
 
-.container {
+
+.make {
+  
+}
+
+
+.desc {
+    text-align: center;
+    text-justify: auto;
+    margin-top: 20px;
+}
+
+
+
+
+.price {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+.addToCart {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px 10px 15px;
+    background-color: rgba(114, 110, 110, 0.3);
+    margin: 2% 40% 2% 40%;
+    font-weight: bold;
+    border: black;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+
+.addToCart:hover {
+    transform: scale(1.1);
+    transition: transform .8s;
+    /* background-color: rgba(114, 110, 110, 0.4); */       /* GREY */
+    background-color: rgb(80, 189, 44);                   /* GREEN */
+}
+
+
+
+
+
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    /* margin-top: 50px;
-    padding-bottom: 100px; */
+    margin-top: 50px;
+    padding-bottom: 100px;
     margin: auto;
 }
 

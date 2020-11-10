@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { getNumbers } from '../actions/getAction';
 import store from '../store';
 
+
+
 const Nav = (props) => {
     console.log(props)
     const state = store.getState()
@@ -21,11 +23,11 @@ const Nav = (props) => {
                 <nav className="navContainer">
                 <h2 className="title">JIDI ELECTRONICS</h2>
 
-                <p> <Link to="/">Shop
-                <ion-icon name="home-outline"></ion-icon>
+                <p className="shop"> <Link to="/">Shop
+                <ion-icon name="home-outline" className="homeIcon"></ion-icon>
                 </Link></p> 
 
-                    <p > <Link to="basket">Basket <span>{props.basketProps.basketNumbers}</span>
+                <p className="basket"> <Link to="basket">Basket <span>{props.basketProps.basketNumbers}</span>
                 <ion-icon name="basket-outline" className="basketIcon"></ion-icon>
                 </Link></p>
 

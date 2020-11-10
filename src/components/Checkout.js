@@ -41,7 +41,7 @@ class Checkout extends Component {
 
             h1: this.state.customerName,
             h2: this.state.email,
-            thankYou: 'thank you'
+            thankYou: 'Thank you for your order!'
         })
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
@@ -53,7 +53,7 @@ class Checkout extends Component {
                 customerName: this.state.customerName,
                 Items: this.props.basketState.products,
                 SaleAmount: this.props.basketCost,
-                email: this.state.emial,
+                email: this.state.email,
                 cardNumber: this.state.cardNumber, // make sure these values are correct,
           
             })
