@@ -14,6 +14,8 @@ class Checkout extends Component {
             customerName: '',
             email: '',
             cardNumber: '',
+            expiryDate: '',
+            cvc: '',
             h1: '',
             h2: '',
             thankYou: ''
@@ -21,6 +23,7 @@ class Checkout extends Component {
             // orderNumber: ''
         }
     }
+
 
     handleNameChange = (event) => {
         this.setState({customerName: event.target.value});
@@ -35,15 +38,30 @@ class Checkout extends Component {
         this.setState({cardNumber: event.target.value});
     }
 
-    createOrder = async (event) => {
-        // event.preventDefault()
+    reset = () => {
         this.setState({
-
-            h1: this.state.customerName,
-            h2: this.state.email,
-            thankYou: 'Thank you for your order!'
+            customerName: '',
+            email: '',
+            cardNumber: '',
+            expiryDate: '',
+            cvc: '',
+            h1: '',
+            h2: '',
+            thankYou: ''
         })
-        let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
+    }
+
+    createOrder = async (event) => {
+        event.preventDefault()
+        // this.setState({
+
+        //     h1: this.state.customerName,
+        //     h2: this.state.email,
+        //     thankYou: 'Thank you for your order!'
+        // })
+ 
+        
+        let ID = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -51,23 +69,31 @@ class Checkout extends Component {
             body: JSON.stringify({
     
                 customerName: this.state.customerName,
-                Items: this.props.basketState.products,
-                SaleAmount: this.props.basketCost,
+                Items: this.props.basketState,
+                // SaleAmount: this.props.basketCost,
                 email: this.state.email,
-                cardNumber: this.state.cardNumber, // make sure these values are correct,
+                cardNumber: this.state.cardNumber,
+                expiryDate: this.state.expiryDate,
+                cvc: this.state.cvc // make sure these values are correct,
           
             })
         });
-
-        this.setState({orderNumber});
+       ID = await ID.json();
+        console.log(ID);
+        this.reset()
+        // this.setState({});
     }
     
+
+
   
 
    
     render() {
-        // console.log(this.state.cardNumber)
-        // console.log(this.body)
+
+
+        console.log(this.state)
+        console.log(this.body)
 
 
         return (
