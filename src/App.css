@@ -166,23 +166,25 @@ a {
 
 .price {
   width: 15%;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px lightgrey;
   display: flex;
   align-items: center
 }
 
 .quantity {
   width: 30%;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px lightgrey;
   display: flex;
   align-items: center;
+  display: grid;
 }
 
 .total {
   width: 10%;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px;
   display: flex;
   align-items: center;
+  
 }
 
 .product ion-icon {
@@ -194,10 +196,10 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  
+  display: grid;
 }
 
-products img {
+.products img {
   width: 75px;
 }
 
@@ -207,16 +209,29 @@ products img {
   justify-content: flex-end;
   width: 100%;
   padding: 10px 0;
+  
 }
 
 .basketTotalTitle {
-  width: 30%
+  width: 30%;
+  font-weight: bold;
+  font-family: 'Anton', sans-serif;
 }
 
 .basketTotal {
-  width: 30%
+  font-size: 25px;
+  width: 30%;
+  color: red;
+  font-family: 'Anton', sans-serif;
 }
 
+.checkout {
+  grid-row: 1 / 1;
+  color: chartreuse;
+}
+
+
+
 .navContainer>.shop>.homeIcon {
-  padding: 20px;
+  padding-left: 140px;
 }

@@ -12,6 +12,7 @@ import Fitbit from './images/fitbit.jpg';
 import { Link } from 'react-router-dom';
 
 import '../App.css';
+// import '../components/Basket.css';
 
 
 function Basket ({basketProps, productQuantity}) {
@@ -66,7 +67,7 @@ function Basket ({basketProps, productQuantity}) {
                
                     <ion-icon onClick={() => productQuantity('increase', product.tagName)}className="increase" name="arrow-forward-circle-outline"></ion-icon>
                 </div>
-                <div className="total">£{product.numbers * product.price}, 00</div>
+                <div className="total">£{product.numbers * product.price}</div>
             </Fragment>
     )
 });
@@ -87,31 +88,31 @@ function Basket ({basketProps, productQuantity}) {
 
     // console.log(product);
 
+    //  BASKET ITEMS >>>>>   
     return (
-
                     <div className="container-products">
                         <div className="product-header">
-                            <h5 className="title">Product</h5>
-                            <h5 className="price">Price</h5>
-                            <h5 className="quantity">Quantity</h5>
-                            <h5 className="total">Total</h5>
+                            {/* <h5 className="basketTitle">Product</h5>
+                            <h5 className="basketPrice">Price</h5>
+                            <h5 className="basketQuantity">Quantity</h5> */}
+                            {/* <h5 className="basketTotal">Total</h5> */}
                         
                         <div className="products">
                             { productsInBasket }
                         </div>
                         <div className="basketTotalContainer">
-                            <h4 className="basketTotalTitle">Basket Total</h4>
-                            <h4 className="basketTotal">{basketProps.basketCost}, 00</h4>
+                            <h4 className="basketTotalTitle">Basket £:</h4>
+                            <h4 className="basketTotal">{basketProps.basketCost}</h4>
                         
                     </div>          
 
-                <p> <Link to="checkout">Checkout
-                <ion-icon name="card-outline"></ion-icon>
+                <p className="checkout"> 
+                <Link to="basketCheckout">Checkout<ion-icon name="card-outline"></ion-icon>
                 
                 </Link></p>
               </div>
         </div>
-
+        //  BASKET ITEMS  ////// 
 
     )
 }
