@@ -43,8 +43,7 @@ function Basket ({basketProps, productQuantity}) {
                 return Phonecase;
             } else if (product.tagName === 'fitbit') {
                 return Fitbit;
-            } 
-            
+            }     
     }
 
 
@@ -72,48 +71,49 @@ function Basket ({basketProps, productQuantity}) {
     )
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // console.log(product);
 
+    
     //  BASKET ITEMS >>>>>   
     return (
-                    <div className="container-products">
-                        <div className="product-header">
-                            {/* <h5 className="basketTitle">Product</h5>
-                            <h5 className="basketPrice">Price</h5>
-                            <h5 className="basketQuantity">Quantity</h5> */}
-                            {/* <h5 className="basketTotal">Total</h5> */}
-                        
-                        <div className="products">
-                            { productsInBasket }
-                        </div>
-                        <div className="basketTotalContainer">
-                            <h4 className="basketTotalTitle">Basket £:</h4>
-                            <h4 className="basketTotal">{basketProps.basketCost}</h4>
-                        
-                    </div>          
+    <div className="parent">
 
-                <p className="checkout"> 
-                <Link to="basketCheckout">Checkout<ion-icon name="card-outline"></ion-icon>
-                
-                </Link></p>
+        <div className="container-products">
+
+               <div>
+                    <h5 className="basketTitle">Product</h5>
+               </div> 
+
+                <div>
+                    <h5 className="basketPrice">Price</h5>     
+                </div> 
+
+                <div>
+                    <h5 className="basketQuantity">Quantity</h5>
+                </div> 
+
+                <div className="product-header"> 
+                        {/* <h5 className="basketTotal">Total</h5>  */}
+                    <div className="products">
+                        { productsInBasket }
+                    </div>
               </div>
         </div>
-        //  BASKET ITEMS  ////// 
 
+                <div className="basketTotalContainer">
+                    <h4 className="basketTotalTitle">Basket £:</h4>
+                    <h4 className="basketTotal">{basketProps.basketCost}</h4>
+                </div>   
+
+
+                <div>
+                    <p className="checkOut"> 
+                    <Link to="basketCheckout">Checkout<ion-icon name="card-outline"></ion-icon>
+                    </Link></p>
+                </div>
+
+        </div>            
+        //  BASKET ITEMS  ////// 
     )
 }
 
