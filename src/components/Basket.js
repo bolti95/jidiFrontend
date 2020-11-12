@@ -100,8 +100,8 @@ function Basket ({basketProps, productQuantity}) {
                             { productsInBasket }
                         </div>
                         <div className="basketTotalContainer">
-                            <h4 classname="basketTotalTitle">Basket Total</h4>
-                            <h4 classname="basketTotal">{basketProps.basketCost}, 00</h4>
+                            <h4 className="basketTotalTitle">Basket Total</h4>
+                            <h4 className="basketTotal">{basketProps.basketCost}, 00</h4>
                         
                     </div>          
 

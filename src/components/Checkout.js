@@ -18,7 +18,8 @@ class Checkout extends Component {
             cvc: '',
             h1: '',
             h2: '',
-            thankYou: ''
+            thankYou: '',
+            orderNumber:  ''
            
             // orderNumber: ''
         }
@@ -38,30 +39,37 @@ class Checkout extends Component {
         this.setState({cardNumber: event.target.value});
     }
 
-    reset = () => {
-        this.setState({
-            customerName: '',
-            email: '',
-            cardNumber: '',
-            expiryDate: '',
-            cvc: '',
-            h1: '',
-            h2: '',
-            thankYou: ''
-        })
+    // reset = () => {
+    //     this.setState({
+    //         customerName: '',
+    //         email: '',
+    //         cardNumber: '',
+    //         expiryDate: '',
+    //         orderNumber: '',
+    //         cvc: '',
+    //         h1: '',
+    //         h2: '',
+    //         thankYou: ''
+    //     })
+    // }
+
+
+
+    handleExpiryDate = (event) => {
+        this.setState({expiryDate: event.target.value});
     }
+
+    handleCvc = (event) => {
+        this.setState({cvc: event.target.value});
+    }
+
 
     createOrder = async (event) => {
         event.preventDefault()
-        // this.setState({
 
-        //     h1: this.state.customerName,
-        //     h2: this.state.email,
-        //     thankYou: 'Thank you for your order!'
-        // })
  
         
-        let ID = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
+        let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -69,18 +77,27 @@ class Checkout extends Component {
             body: JSON.stringify({
     
                 customerName: this.state.customerName,
-                Items: this.props.basketState,
-                // SaleAmount: this.props.basketCost,
+                Items: 0,
+                SaleAmount: 0,
                 email: this.state.email,
                 cardNumber: this.state.cardNumber,
                 expiryDate: this.state.expiryDate,
-                cvc: this.state.cvc // make sure these values are correct,
+                cvc: this.state.cvc
+                // make sure these values are correct,,
           
             })
         });
-       ID = await ID.json();
-        console.log(ID);
-        this.reset()
+       orderNumber = await orderNumber.json();
+       console.log(orderNumber);
+       this.setState({
+                orderNumber: 'Your order number is ' + orderNumber.orderNumber,
+                h1: this.state.customerName,        //     h1: this.state.customerName,
+                h2: this.state.email,
+                thankYou: 'Thank you for your order!'
+            })
+    
+        
+        // this.reset()
         // this.setState({});
     }
     
@@ -93,7 +110,7 @@ class Checkout extends Component {
 
 
         console.log(this.state)
-        console.log(this.body)
+       
 
 
         return (
@@ -112,6 +129,13 @@ class Checkout extends Component {
 
                         <label className="customer-name" for="customerName">Card Number:</label>
                         <input type="text" onChange={this.handleCardChange}/>
+
+                        <label className="customer-name" for="customerName">Expiry Date:</label>
+                        <input type="text" onChange={this.handleExpiryDate}/>
+
+                        <label className="customer-name" for="customerName">CVC:</label>
+                        <input type="text" onChange={this.handleCvc}/>
+
 
                         <label className="sale-amount" for="saleAmount"></label>
                         <h1>Total Amount: £{this.props.basketCost}</h1>
@@ -135,6 +159,7 @@ class Checkout extends Component {
                 <h2>{this.state.thankYou}</h2>
                 <h1>{this.state.h1}</h1>
                 <h2>{this.state.h2}</h2>
+                <h2>{this.state.orderNumber}</h2>
 
             </div>
         )
