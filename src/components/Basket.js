@@ -101,8 +101,8 @@ function Basket ({basketProps, productQuantity}) {
         </div>
 
                 <div className="basketTotalContainer">
-                    <h4 className="basketTotalTitle">Basket £:</h4>
-                    <h4 className="basketTotal">{basketProps.basketCost}</h4>
+                    <h4 className="basketTotalTitle">Basket Total £: {basketProps.basketCost}</h4>
+                    {/* <h4 className="basketTotal">{basketProps.basketCost}</h4> */}
                 </div>   
 
 
@@ -127,3 +127,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { productQuantity })(Basket);
+
