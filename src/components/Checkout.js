@@ -53,12 +53,7 @@ class Checkout extends Component {
     createOrder = async (event) => {
         event.preventDefault()
 
-        const iterator = this.props.basketProps.productsInBasket.values();
-
-        for (const value of iterator) {
-            console.log(value)
-            
-        }
+        let items = this.props.basketProps.productsInBasket.join();
         
 
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
@@ -75,9 +70,7 @@ class Checkout extends Component {
                 cardNumber: this.state.cardNumber,
                 expiryDate: this.state.expiryDate,
                 cvc: this.state.cvc,
-                items: this.value,
-                //this.productsInBasket[]
-                // items: this.props.basketProps.productsInBasket,
+                items: items,
                 saleAmount: this.props.basketCost,
                                           
                 // make sure these values are correct,,
