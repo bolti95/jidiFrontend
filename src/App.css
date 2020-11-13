@@ -121,20 +121,20 @@ a {
 
 .container-products {
   font-size: 20px;
-  /* display: flex;
-  position: relative; */
+  display: flex;
+  position: relative;
   justify-content: space-around;
   max-width: 650px;
   margin: 0 auto;
   margin-top: 50px;
 }
 
-/* .container-products {
+.container-products {
   max-width: 650px;
   justify-content: space-around;
   margin: 0 auto;
   margin-top: 50px;
-}   */
+}  
 
 .container-products {
   width: 50%;
@@ -151,6 +151,8 @@ a {
 
 .product {
   margin: 0px;
+  display: flex;
+
 
 }
 
@@ -209,7 +211,7 @@ a {
 } 
 
 .products img {
-  width: 75px;
+  width: 5px;
 }
 
 
@@ -238,13 +240,13 @@ a {
 
 
 .basketTotalcontainer {
-  align-items: flex-end;
-  float: left;
+  /* align-items: flex-end; */
+  /* float: left; */
   width: 100%;
   padding: 10px 0;
 
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   justify-content: center;
 }
 
