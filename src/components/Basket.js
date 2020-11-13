@@ -55,10 +55,10 @@ function Basket ({basketProps, productQuantity}) {
     productsInBasket = productsInBasket.map( (product, index) => {
         return (
             <Fragment key={index}>
-                 {/* <div className="product">
+                 <div className="product">
                     <img src={productImages(product)} alt="laptop" />
                     <span className="product">{product.name}</span>
-                </div> */}
+                </div>
                 <div className="price">£{product.price}</div>
                 <div className="quantity">
                     <span>{product.numbers}</span>
@@ -108,7 +108,7 @@ function Basket ({basketProps, productQuantity}) {
 
                 <div>
                     <p className="checkOut"> 
-                    <Link to="basketCheckout">Checkout<ion-icon name="card-outline"></ion-icon>
+                    <Link to="Checkout">Checkout<ion-icon name="card-outline"></ion-icon>
                     </Link></p>
                 </div>
 
