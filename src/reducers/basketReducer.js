@@ -4,6 +4,7 @@ import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUA
 const initialState = {
     basketNumbers: 0,
     basketCost: 0,
+    productsInBasket: [],
     products: {
         desktop: {
 
@@ -72,6 +73,9 @@ export default (state = initialState, action) => {
 
             return {
                 ...state,
+
+                // customerProducts: [state.products[action.payload].name],
+                productsInBasket: [...state.productsInBasket, state.products[action.payload].name],
                 
                 basketNumbers: state.basketNumbers + 1,
 
@@ -81,6 +85,8 @@ export default (state = initialState, action) => {
                     ...state.products,
                     [action.payload]: productSelected
                 }
+
+                
                 //caused error
            
             }
@@ -94,7 +100,13 @@ export default (state = initialState, action) => {
             productSelected.numbers += 1;
             return {
                 ...state,
+                
+
+
                 basketCost: state.basketCost + state.products[action.payload].price,
+
+                
+
                 products: {
                     ...state.products,
                     [action.payload]: productSelected
@@ -113,6 +125,7 @@ export default (state = initialState, action) => {
             } 
             return {
                 ...state,
+               
                 basketCost: state.basketCost - state.products[action.payload].price,
                 products: {
                     ...state.products,
@@ -125,9 +138,11 @@ export default (state = initialState, action) => {
             
             return {
                 ...state,
-                basketCost: 0
+                basketCost: 0,
+                productsInBasket: []
                 
             }
+
 
         case SHOW_TOTAL:
             productSelected = {...state.products[action.payload]}

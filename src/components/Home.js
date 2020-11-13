@@ -11,19 +11,7 @@ import basketReducer from '../reducers/basketReducer';
 
 
 
-const addToBasket = (productName) => {
 
-    fetch("http://localhost:3005/basket/add", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-            
-        }, 
-        body: JSON.stringify({productName})
-
-    }) 
-
-}
 
 const Home = (props) => {
 
@@ -74,7 +62,7 @@ const Home = (props) => {
                     <h2 className="make">FITBIT Versa 3 - Pink Clay & Soft Gold</h2>
                     <h3 className="desc">The Fitbit Versa 3 helps you to track your health every day. You can monitor your heart rate while you're exercising or resting, perfect for keeping track of trends. It tracks your everyday activity, including steps, distance and calories burned.</h3>
                     <h3 className="price">£199.00</h3>
-                    <a onClick={() => {props.addBasket("fitbit"); addToBasket("fitbit")}} className="addToCart" href="#">Add to Cart</a>
+                    <a onClick={() => props.addBasket("fitbit")} className="addToCart" href="#">Add to Cart</a>
 
                 </div>
 

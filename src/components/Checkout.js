@@ -1,13 +1,14 @@
-//hello world
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { cancelOrder } from '../actions/cancelOrder';
+import { productQuantity }from '../actions/productQuantity'
+
 import '../components/Checkout.css';
 
-// THIS IS HOW DEAN SHOWED US TO CONNECT BACKEND
 
 class Checkout extends Component {
-    constructor(props) {
+    constructor({props, basketProps}) {
+        
         super();
 
         this.state = {
@@ -19,11 +20,11 @@ class Checkout extends Component {
             h1: '',
             h2: '',
             thankYou: '',
-            orderNumber:  ''
-           
-            // orderNumber: ''
+            orderNumber:  '',
+            orderMessage: ''
         }
     }
+
 
 
     handleNameChange = (event) => {
@@ -39,21 +40,6 @@ class Checkout extends Component {
         this.setState({cardNumber: event.target.value});
     }
 
-    // reset = () => {
-    //     this.setState({
-    //         customerName: '',
-    //         email: '',
-    //         cardNumber: '',
-    //         expiryDate: '',
-    //         orderNumber: '',
-    //         cvc: '',
-    //         h1: '',
-    //         h2: '',
-    //         thankYou: ''
-    //     })
-    // }
-
-
 
     handleExpiryDate = (event) => {
         this.setState({expiryDate: event.target.value});
@@ -67,22 +53,33 @@ class Checkout extends Component {
     createOrder = async (event) => {
         event.preventDefault()
 
- 
+        const iterator = this.props.basketProps.productsInBasket.values();
+
+        for (const value of iterator) {
+            console.log(value)
+            
+        }
         
+
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             }, 
+
+
             body: JSON.stringify({
     
                 customerName: this.state.customerName,
-                Items: 0,
-                SaleAmount: 0,
                 email: this.state.email,
                 cardNumber: this.state.cardNumber,
                 expiryDate: this.state.expiryDate,
-                cvc: this.state.cvc
+                cvc: this.state.cvc,
+                items: this.value,
+                //this.productsInBasket[]
+                // items: this.props.basketProps.productsInBasket,
+                saleAmount: this.props.basketCost,
+                                          
                 // make sure these values are correct,,
           
             })
@@ -90,7 +87,8 @@ class Checkout extends Component {
        orderNumber = await orderNumber.json();
        console.log(orderNumber);
        this.setState({
-                orderNumber: 'Your order number is ' + orderNumber.orderNumber,
+                orderMessage: 'Your order number is ',
+                orderNumber:  orderNumber.orderNumber,
                 h1: this.state.customerName,        //     h1: this.state.customerName,
                 h2: this.state.email,
                 thankYou: 'Thank you for your order!'
@@ -100,17 +98,15 @@ class Checkout extends Component {
         // this.reset()
         // this.setState({});
     }
-    
-
 
   
-
-   
+ 
     render() {
 
 
         console.log(this.state)
-       
+        
+        console.log(this.props.basketProps.productsInBasket);
 
 
         return (
@@ -154,7 +150,7 @@ class Checkout extends Component {
 
 
 
-                </form>
+                </form>     
 
                 <h2>{this.state.thankYou}</h2>
                 <h1>{this.state.h1}</h1>
@@ -168,14 +164,16 @@ class Checkout extends Component {
 
 const mapStateToProps = state => ({
     basketCost: state.basketState.basketCost,
-    basketState: state.basketState.basketState,
+    // basketState: state.basketState,
     basketNumbers: state.basketState.products.numbers,
+    basketProps: state.basketState
+
     
 
     //comes from our index.js combined reducer, everything comes from here
 });
 
-export default connect(mapStateToProps, { cancelOrder })(Checkout);
+export default connect(mapStateToProps, { cancelOrder , productQuantity})(Checkout);
 
 
 
