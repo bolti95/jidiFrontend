@@ -32,28 +32,39 @@ class Checkout extends Component {
     }
     
     handleEmailChange = (event) => {
-        this.setState({email: event.target.value});
+        this.setState({email: event.target.value}); 
     }
 
 
     handleCardChange = (event) => {
         this.setState({cardNumber: event.target.value});
+        // this.checkIfNumber();
     }
 
 
     handleExpiryDate = (event) => {
         this.setState({expiryDate: event.target.value});
+        // this.checkIfNumber();
     }
 
     handleCvc = (event) => {
         this.setState({cvc: event.target.value});
+        this.checkIfNumber();
+    }
+
+    checkIfNumber = () => {
+        if (isNaN(this.state.cvc || this.state.expiryDate || this.state.cardNumber) === true){
+          alert("Please enter numerical values.")
+        } else {
+            console.log('okay')
+        }
     }
 
 
     createOrder = async (event) => {
         event.preventDefault()
 
-        let items = this.props.basketProps.productsInBasket.join();
+        let items = this.props.basketProps.productsInBasket.join();    
         
 
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
@@ -91,11 +102,8 @@ class Checkout extends Component {
         // this.reset()
         // this.setState({});
     }
-
-  
  
     render() {
-
 
         console.log(this.state)
         
@@ -103,6 +111,7 @@ class Checkout extends Component {
 
 
         return (
+
                 <div className="container">
                     <form className="customerInfo">
                         <h1>CHECKOUT</h1>
@@ -141,8 +150,6 @@ class Checkout extends Component {
                     </div>
 
 
-
-
                 </form>     
 
                 <h2>{this.state.thankYou}</h2>
@@ -160,6 +167,7 @@ const mapStateToProps = state => ({
     // basketState: state.basketState,
     basketNumbers: state.basketState.products.numbers,
     basketProps: state.basketState
+
 
     
 
