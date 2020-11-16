@@ -1,18 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-
 import { productQuantity } from '../actions/productQuantity';
-
 import Desktop from './images/desktop.jpg';
 import Laptop from './images/laptop.jpg';
 import Iphone from './images/iphone.jpg';
 import Phonecase from './images/phonecase.jpg';
 import Fitbit from './images/fitbit.jpg';
-
 import { Link } from 'react-router-dom';
-
 import '../App.css';
-// import '../components/Basket.css';
 
 
 function Basket ({basketProps, productQuantity}) {
@@ -21,14 +16,12 @@ function Basket ({basketProps, productQuantity}) {
     let productsInBasket = [];
 
     Object.keys(basketProps.products).forEach( function(item){
-        console.log(item);
-        console.log(basketProps.products[item].inBasket);
         if(basketProps.products[item].inBasket) {
             productsInBasket.push(basketProps.products[item])
             //adding everythin we want to the basket page
             //productsInBasket is everything in the customer basket
         }
-        console.log(productsInBasket);
+
         //need to know what items are in the basket to add
     })
 
@@ -46,9 +39,6 @@ function Basket ({basketProps, productQuantity}) {
             }     
     }
 
-
-
-    // const productImages = [Laptop, Iphone, Phonecase, Fitbit]
     console.log("My product is");
    
     //fragment is a fake place holder that needs importing
@@ -71,9 +61,7 @@ function Basket ({basketProps, productQuantity}) {
     )
 });
 
-    // console.log(product);
 
-    
     //  BASKET ITEMS >>>>>   
     return (
     <div className="parent">
@@ -93,7 +81,7 @@ function Basket ({basketProps, productQuantity}) {
                 </div> 
 
                 <div className="product-header"> 
-                        {/* <h5 className="basketTotal">Total</h5>  */}
+
                     <div className="products">
                         { productsInBasket }
                     </div>
