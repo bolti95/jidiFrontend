@@ -1,18 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-
 import { productQuantity } from '../actions/productQuantity';
-
 import Desktop from './images/desktop.jpg';
 import Laptop from './images/laptop.jpg';
 import Iphone from './images/iphone.jpg';
 import Phonecase from './images/phonecase.jpg';
 import Fitbit from './images/fitbit.jpg';
-
 import { Link } from 'react-router-dom';
-
 import '../App.css';
-// import '../components/Basket.css';
 
 
 function Basket ({basketProps, productQuantity}) {
@@ -21,14 +16,12 @@ function Basket ({basketProps, productQuantity}) {
     let productsInBasket = [];
 
     Object.keys(basketProps.products).forEach( function(item){
-        console.log(item);
-        console.log(basketProps.products[item].inBasket);
         if(basketProps.products[item].inBasket) {
             productsInBasket.push(basketProps.products[item])
             //adding everythin we want to the basket page
             //productsInBasket is everything in the customer basket
         }
-        console.log(productsInBasket);
+
         //need to know what items are in the basket to add
     })
 
@@ -46,41 +39,38 @@ function Basket ({basketProps, productQuantity}) {
             }     
     }
 
-
-
-    // const productImages = [Laptop, Iphone, Phonecase, Fitbit]
     console.log("My product is");
    
     //fragment is a fake place holder that needs importing
     productsInBasket = productsInBasket.map( (product, index) => {
         return (
             <Fragment key={index}>
-                 <div className="product">
+
+                <div>
                     <img src={productImages(product)} alt="laptop" />
-                    <span className="product">{product.name}</span>
-                </div>
-                <div className="price">£{product.price}</div>
+                    <span>{product.name}</span>
+
+                {/* <div className="price">£{product.price}</div> */}
                 <div className="quantity">
                     <span>{product.numbers}</span>
                     <ion-icon onClick={() => productQuantity('decrease', product.tagName)}className="decrease" name="arrow-back-circle-outline"></ion-icon>
-               
                     <ion-icon onClick={() => productQuantity('increase', product.tagName)}className="increase" name="arrow-forward-circle-outline"></ion-icon>
-                </div>
                 <div className="total">£{product.numbers * product.price}</div>
+
+                </div>
+                </div>
             </Fragment>
     )
 });
 
-    // console.log(product);
 
-    
     //  BASKET ITEMS >>>>>   
     return (
     <div className="parent">
 
         <div className="container-products">
 
-               <div>
+               {/* <div>
                     <h5 className="basketTitle">Product</h5>
                </div> 
 
@@ -90,19 +80,22 @@ function Basket ({basketProps, productQuantity}) {
 
                 <div>
                     <h5 className="basketQuantity">Quantity</h5>
-                </div> 
+                </div>  */}
+
 
                 <div className="product-header"> 
-                        {/* <h5 className="basketTotal">Total</h5>  */}
                     <div className="products">
+
+                    <div>
+
                         { productsInBasket }
                     </div>
-              </div>
+              {/* </div> */}
         </div>
 
                 <div className="basketTotalContainer">
-                    <h4 className="basketTotalTitle">Basket £:</h4>
-                    <h4 className="basketTotal">{basketProps.basketCost}</h4>
+                    <h4 className="basketTotalTitle">Basket Total: £ {basketProps.basketCost}</h4>
+                    {/* <h4 className="basketTotal">{basketProps.basketCost}</h4> */}
                 </div>   
 
 
@@ -127,3 +120,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { productQuantity })(Basket);
+

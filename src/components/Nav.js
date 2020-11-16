@@ -8,9 +8,9 @@ import store from '../store';
 
 
 const Nav = (props) => {
-    console.log(props)
+   
     const state = store.getState()
-    // console.log(state.basketReducer);
+  
 
     useEffect(() => {
         getNumbers();
@@ -30,6 +30,14 @@ const Nav = (props) => {
                 <p className="basket"> <Link to="basket">Basket <span>{props.basketProps.basketNumbers}</span>
                 <ion-icon name="basket-outline" className="basketIcon"></ion-icon>
                 </Link></p>
+
+                <p className="login"> <Link to="login">Login
+                <ion-icon name="home-outline" className="homeIcon"></ion-icon>
+                </Link></p> 
+
+                <p className="signup"> <Link to="signup">Sign Up
+                <ion-icon name="home-outline" className="homeIcon"></ion-icon>
+                </Link></p> 
 
 
                 </nav>
