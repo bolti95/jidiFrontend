@@ -90,7 +90,7 @@ function Basket ({basketProps, productQuantity}) {
 
                         { productsInBasket }
                     </div>
-              {/* </div> */}
+              </div>
         </div>
 
                 <div className="basketTotalContainer">
@@ -105,13 +105,11 @@ function Basket ({basketProps, productQuantity}) {
                     </Link></p>
                 </div>
 
-        </div>            
+        </div>          
+    </div>  
         //  BASKET ITEMS  ////// 
     )
 }
-
-
-
 
 const mapStateToProps = state => ({
     basketProps: state.basketState

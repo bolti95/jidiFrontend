@@ -100,26 +100,29 @@ export default (state = initialState, action) => {
                 }
             }
             
-        case DECREASE_QUANTITY:
-            productSelected = { ...state.products[action.payload]};
-            let newBasketCost = 0;
-            if( productSelected.numbers === 0) { 
-                productSelected.numbers = 0;
-                newBasketCost = state.basketCost
-            } else {
-                productSelected.numbers -= 1;
-                newBasketCost = state.basketCost - state.products[action.payload].price
-            } 
-            return {
-                ...state,
-               
-                basketCost: state.basketCost - state.products[action.payload].price,
-                products: {
-                    ...state.products,
-                    basketCost: newBasketCost,
-                    [action.payload]: productSelected
+            case DECREASE_QUANTITY:
+                productSelected = { ...state.products[action.payload]};
+                let newBasketCost = 0;
+                if(productSelected.numbers === 0)
+                { 
+                    productSelected.numbers = 0;
+                    newBasketCost = state.basketCost;
+                    state.basketCost = 0;
+                } else {
+                    productSelected.numbers -= 1;
+                    newBasketCost = state.basketCost - state.products[action.payload].price
                 }
-            }
+                return {
+                    ...state,
+                   
+                    basketCost: state.basketCost - state.products[action.payload].price,
+                    products: {
+                        ...state.products,
+                        basketCost: newBasketCost,
+                        [action.payload]: productSelected
+                    }
+                }
+
         case CANCEL_ORDER: 
             productSelected = {...state.products[action.payload]}
             

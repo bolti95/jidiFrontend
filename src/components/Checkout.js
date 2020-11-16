@@ -76,16 +76,13 @@ class Checkout extends Component {
 
             body: JSON.stringify({
     
-    //             ID: ,
-    //             ItemName: ,
+  
                 desktop: this.props.basketProps.products.desktop.numbers,
                 laptop: this.props.basketProps.products.laptop.numbers,
                 iphone: this.props.basketProps.products.iphone.numbers,
                 phonecase: this.props.basketProps.products.phonecase.numbers,
-                fitbit: this.props.basketProps.products.fitbit.numbers,
-                // Category: ,
-                // Price: ,
-                // Quantity: ,
+                fitbit: this.props.basketProps.products.fitbit.numbers
+              
                                           
                 // make sure these values are correct,,
           
@@ -104,13 +101,10 @@ class Checkout extends Component {
     createOrder = async (event) => {
         event.preventDefault()
 
-<<<<<<< HEAD
-        let items = this.props.basketProps.productsInBasket.join();    
-        
-=======
+
         let items = this.props.basketProps.productsInBasket.join();
         console.log(this.props.basketProps.products.desktop.numbers)
->>>>>>> adf42af3e7e20f672fa0474fd68fb75d10c5beab
+
 
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
@@ -145,19 +139,13 @@ class Checkout extends Component {
         })         
 
     }
-<<<<<<< HEAD
+
  
     render() {
 
         console.log(this.state)
-=======
-
- 
-    render() {
 
 
-
->>>>>>> adf42af3e7e20f672fa0474fd68fb75d10c5beab
         
         console.log(this.props.basketProps.productsInBasket);
 
