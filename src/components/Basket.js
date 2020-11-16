@@ -119,9 +119,6 @@ function Basket ({basketProps, productQuantity}) {
     )
 }
 
-
-
-
 const mapStateToProps = state => ({
     basketProps: state.basketState
 
