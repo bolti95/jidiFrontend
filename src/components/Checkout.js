@@ -61,11 +61,56 @@ class Checkout extends Component {
     }
 
 
+
+    updateStockedProducts = async () => {
+        // event.preventDefault()
+        
+        // console.log(this.basketProps.products.desktop.numbers)
+
+        let updateProducts = await fetch("http://localhost:3005/checkout/updateStockedProducts", { // watch this route, will need to be the same in the back
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+
+
+            body: JSON.stringify({
+    
+    //             ID: ,
+    //             ItemName: ,
+                desktop: this.props.basketProps.products.desktop.numbers,
+                laptop: this.props.basketProps.products.laptop.numbers,
+                iphone: this.props.basketProps.products.iphone.numbers,
+                phonecase: this.props.basketProps.products.phonecase.numbers,
+                fitbit: this.props.basketProps.products.fitbit.numbers,
+                // Category: ,
+                // Price: ,
+                // Quantity: ,
+                                          
+                // make sure these values are correct,,
+          
+            })
+        });
+        updateProducts = await updateProducts.json();
+        console.log(updateProducts);
+           
+    //     // this.reset()
+    //     // this.setState({});
+    }
+
+
+
+
     createOrder = async (event) => {
         event.preventDefault()
 
+<<<<<<< HEAD
         let items = this.props.basketProps.productsInBasket.join();    
         
+=======
+        let items = this.props.basketProps.productsInBasket.join();
+        console.log(this.props.basketProps.products.desktop.numbers)
+>>>>>>> adf42af3e7e20f672fa0474fd68fb75d10c5beab
 
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
@@ -88,24 +133,31 @@ class Checkout extends Component {
           
             })
         });
-       orderNumber = await orderNumber.json();
-       console.log(orderNumber);
-       this.setState({
-                orderMessage: 'Your order number is ',
-                orderNumber:  orderNumber.orderNumber,
-                h1: this.state.customerName,        //     h1: this.state.customerName,
-                h2: this.state.email,
-                thankYou: 'Thank you for your order!'
-            })
-    
-        
-        // this.reset()
-        // this.setState({});
+        this.updateStockedProducts()
+        orderNumber = await orderNumber.json();
+        console.log(orderNumber);
+        this.setState({
+                 orderMessage: 'Your order number is ',
+                 orderNumber:  orderNumber.orderNumber,
+                 h1: this.state.customerName,        //     h1: this.state.customerName,
+                 h2: this.state.email,
+                 thankYou: 'Thank you for your order!'
+        })         
+
     }
+<<<<<<< HEAD
  
     render() {
 
         console.log(this.state)
+=======
+
+ 
+    render() {
+
+
+
+>>>>>>> adf42af3e7e20f672fa0474fd68fb75d10c5beab
         
         console.log(this.props.basketProps.productsInBasket);
 
@@ -119,23 +171,23 @@ class Checkout extends Component {
 
                         <div className="info">
 
-                        <label className="customer-name" for="customerName">Name:</label>
+                        <label className="customer-name" >Name:</label>
                         <input type="text" onChange={this.handleNameChange}/>
 
-                        <label className="customer-name" for="customerName">Email Address:</label>
+                        <label className="customer-name" >Email Address:</label>
                         <input type="text" onChange={this.handleEmailChange}/>
 
-                        <label className="customer-name" for="customerName">Card Number:</label>
+                        <label className="customer-name" >Card Number:</label>
                         <input type="text" onChange={this.handleCardChange}/>
 
-                        <label className="customer-name" for="customerName">Expiry Date:</label>
+                        <label className="customer-name" >Expiry Date:</label>
                         <input type="text" onChange={this.handleExpiryDate}/>
 
-                        <label className="customer-name" for="customerName">CVC:</label>
+                        <label className="customer-name" >CVC:</label>
                         <input type="text" onChange={this.handleCvc}/>
 
 
-                        <label className="sale-amount" for="saleAmount"></label>
+                        <label className="sale-amount" ></label>
                         <h1>Total Amount: £{this.props.basketCost}</h1>
 
                         <br/>
@@ -164,7 +216,6 @@ class Checkout extends Component {
 
 const mapStateToProps = state => ({
     basketCost: state.basketState.basketCost,
-    // basketState: state.basketState,
     basketNumbers: state.basketState.products.numbers,
     basketProps: state.basketState
 

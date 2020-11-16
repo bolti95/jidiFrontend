@@ -59,22 +59,17 @@ const initialState = {
     }
 };        
 
-
 export default (state = initialState, action) => {
     let productSelected = "";
     switch(action.type) {
         case ADD_PRODUCT_BASKET:
-            productSelected= {...state.products[action.payload]}
-            console.log(productSelected)
+            productSelected= {...state.products[action.payload]}       
             productSelected.numbers += 1;
             productSelected.inBasket = true;
-            console.log(productSelected);
-
 
             return {
                 ...state,
 
-                // customerProducts: [state.products[action.payload].name],
                 productsInBasket: [...state.productsInBasket, state.products[action.payload].name],
                 
                 basketNumbers: state.basketNumbers + 1,
@@ -85,10 +80,6 @@ export default (state = initialState, action) => {
                     ...state.products,
                     [action.payload]: productSelected
                 }
-
-                
-                //caused error
-           
             }
         case GET_NUMBERS_BASKET:
             return {
@@ -101,11 +92,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 
-
-
-                basketCost: state.basketCost + state.products[action.payload].price,
-
-                
+                basketCost: state.basketCost + state.products[action.payload].price,                
 
                 products: {
                     ...state.products,
@@ -139,6 +126,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 basketCost: 0,
+                basketNumbers: 0,
                 productsInBasket: []
                 
             }
