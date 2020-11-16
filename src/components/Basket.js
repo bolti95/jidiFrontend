@@ -45,18 +45,20 @@ function Basket ({basketProps, productQuantity}) {
     productsInBasket = productsInBasket.map( (product, index) => {
         return (
             <Fragment key={index}>
-                 <div className="product">
+
+                <div>
                     <img src={productImages(product)} alt="laptop" />
-                    <span className="product">{product.name}</span>
-                </div>
-                <div className="price">£{product.price}</div>
+                    <span>{product.name}</span>
+
+                {/* <div className="price">£{product.price}</div> */}
                 <div className="quantity">
                     <span>{product.numbers}</span>
                     <ion-icon onClick={() => productQuantity('decrease', product.tagName)}className="decrease" name="arrow-back-circle-outline"></ion-icon>
-               
                     <ion-icon onClick={() => productQuantity('increase', product.tagName)}className="increase" name="arrow-forward-circle-outline"></ion-icon>
-                </div>
                 <div className="total">£{product.numbers * product.price}</div>
+
+                </div>
+                </div>
             </Fragment>
     )
 });
@@ -68,7 +70,7 @@ function Basket ({basketProps, productQuantity}) {
 
         <div className="container-products">
 
-               <div>
+               {/* <div>
                     <h5 className="basketTitle">Product</h5>
                </div> 
 
@@ -78,19 +80,22 @@ function Basket ({basketProps, productQuantity}) {
 
                 <div>
                     <h5 className="basketQuantity">Quantity</h5>
-                </div> 
+                </div>  */}
+
 
                 <div className="product-header"> 
-
                     <div className="products">
+
+                    <div>
+
                         { productsInBasket }
                     </div>
-              </div>
+              {/* </div> */}
         </div>
 
                 <div className="basketTotalContainer">
-                    <h4 className="basketTotalTitle">Basket £:</h4>
-                    <h4 className="basketTotal">{basketProps.basketCost}</h4>
+                    <h4 className="basketTotalTitle">Basket Total: £ {basketProps.basketCost}</h4>
+                    {/* <h4 className="basketTotal">{basketProps.basketCost}</h4> */}
                 </div>   
 
 
@@ -115,3 +120,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { productQuantity })(Basket);
+
