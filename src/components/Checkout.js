@@ -32,21 +32,32 @@ class Checkout extends Component {
     }
     
     handleEmailChange = (event) => {
-        this.setState({email: event.target.value});
+        this.setState({email: event.target.value}); 
     }
 
 
     handleCardChange = (event) => {
         this.setState({cardNumber: event.target.value});
+        // this.checkIfNumber();
     }
 
 
     handleExpiryDate = (event) => {
         this.setState({expiryDate: event.target.value});
+        // this.checkIfNumber();
     }
 
     handleCvc = (event) => {
         this.setState({cvc: event.target.value});
+        this.checkIfNumber();
+    }
+
+    checkIfNumber = () => {
+        if (isNaN(this.state.cvc || this.state.expiryDate || this.state.cardNumber) === true){
+          alert("Please enter numerical values.")
+        } else {
+            console.log('okay')
+        }
     }
 
 
@@ -65,16 +76,13 @@ class Checkout extends Component {
 
             body: JSON.stringify({
     
-    //             ID: ,
-    //             ItemName: ,
+  
                 desktop: this.props.basketProps.products.desktop.numbers,
                 laptop: this.props.basketProps.products.laptop.numbers,
                 iphone: this.props.basketProps.products.iphone.numbers,
                 phonecase: this.props.basketProps.products.phonecase.numbers,
-                fitbit: this.props.basketProps.products.fitbit.numbers,
-                // Category: ,
-                // Price: ,
-                // Quantity: ,
+                fitbit: this.props.basketProps.products.fitbit.numbers
+              
                                           
                 // make sure these values are correct,,
           
@@ -93,8 +101,10 @@ class Checkout extends Component {
     createOrder = async (event) => {
         event.preventDefault()
 
+
         let items = this.props.basketProps.productsInBasket.join();
         console.log(this.props.basketProps.products.desktop.numbers)
+
 
         let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
@@ -133,13 +143,18 @@ class Checkout extends Component {
  
     render() {
 
+        console.log(this.state)
+=======
 
+ 
+    render() {
 
         
         console.log(this.props.basketProps.productsInBasket);
 
 
         return (
+
                 <div className="container">
                     <form className="customerInfo">
                         <h1>CHECKOUT</h1>
@@ -178,8 +193,6 @@ class Checkout extends Component {
                     </div>
 
 
-
-
                 </form>     
 
                 <h2>{this.state.thankYou}</h2>
@@ -196,6 +209,7 @@ const mapStateToProps = state => ({
     basketCost: state.basketState.basketCost,
     basketNumbers: state.basketState.products.numbers,
     basketProps: state.basketState
+
 
     
 
