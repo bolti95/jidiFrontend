@@ -38,13 +38,11 @@ class Checkout extends Component {
 
     handleCardChange = (event) => {
         this.setState({cardNumber: event.target.value});
-        // this.checkIfNumber();
     }
 
 
     handleExpiryDate = (event) => {
         this.setState({expiryDate: event.target.value});
-        // this.checkIfNumber();
     }
 
     handleCvc = (event) => {
@@ -144,10 +142,7 @@ class Checkout extends Component {
     render() {
 
         console.log(this.state)
-=======
 
- 
-    render() {
 
         
         console.log(this.props.basketProps.productsInBasket);
