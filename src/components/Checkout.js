@@ -38,13 +38,11 @@ class Checkout extends Component {
 
     handleCardChange = (event) => {
         this.setState({cardNumber: event.target.value});
-        // this.checkIfNumber();
     }
 
 
     handleExpiryDate = (event) => {
         this.setState({expiryDate: event.target.value});
-        // this.checkIfNumber();
     }
 
     handleCvc = (event) => {
