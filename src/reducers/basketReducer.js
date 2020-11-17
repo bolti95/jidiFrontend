@@ -2,6 +2,7 @@ import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUA
 
 
 const initialState = {
+    decrease: "arrow-back-circle-outline",
     basketNumbers: 0,
     basketCost: 0,
     productsInBasket: [],
@@ -89,6 +90,7 @@ export default (state = initialState, action) => {
         case INCREASE_QUANTITY:
             productSelected = { ...state.products[action.payload]}
             productSelected.numbers += 1;
+            state.basketNumbers += 1;
             return {
                 ...state,
                 
@@ -100,28 +102,42 @@ export default (state = initialState, action) => {
                 }
             }
             
-            case DECREASE_QUANTITY:
-                productSelected = { ...state.products[action.payload]};
-                let newBasketCost = 0;
-                if(productSelected.numbers === 0)
-                { 
-                    productSelected.numbers = 0;
-                    newBasketCost = state.basketCost;
-                    state.basketCost = 0;
-                } else {
-                    productSelected.numbers -= 1;
-                    newBasketCost = state.basketCost - state.products[action.payload].price
-                }
+            case DECREASE_QUANTITY:          
+            productSelected = { ...state.products[action.payload]};
+            let newBasketCost = 0;
+            let newdecrease = '';
+            if( productSelected.numbers <= 0) {
+                state.decrease = newdecrease;
+                state.products[action.payload].price = 0;
+                productSelected.numbers = 0;
+                newBasketCost = 0;
+                state.basketNumbers = 0;
+            } else {
+                productSelected.numbers -= 1;
+                state.basketNumbers -= 1;
+                newBasketCost = state.basketCost - state.products[action.payload].price
+            } 
+         
+                    // newBasketCost = Math.round(state.basketCost);
+              
+                // } else {
+                //     productSelected.numbers -= 1;
+                //     newBasketCost = state.basketCost - state.products[action.payload].price;
+                //     state.basketNumbers = state.products[action.payload].numbers;
+                //     state.decrease = '';
+                // } 
                 return {
                     ...state,
-                   
-                    basketCost: state.basketCost - state.products[action.payload].price,
+                
+                    basketCost: state.basketCost - state.products[action.payload].price,                
+
                     products: {
                         ...state.products,
-                        basketCost: newBasketCost,
                         [action.payload]: productSelected
                     }
                 }
+    
+    
 
         case CANCEL_ORDER: 
             productSelected = {...state.products[action.payload]}
