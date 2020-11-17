@@ -74,7 +74,7 @@ class Signup extends Component {
                         <label className="customer-name">Name:</label>
                         <input type="text"onChange={this.handleNameChange}/>
 
-                        <label className="customer-name">User name:</label>
+                        <label className="customer-name">User Name:</label>
                         <input type="text" onChange={this.handleUserNameChange}/>
 
                         <label className="customer-name">Email Address:</label>
