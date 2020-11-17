@@ -66,13 +66,13 @@ class Signup extends Component {
 
                 <div className="container">
                     <div classname="info">
-                    <form className="customerInfo">
+                    <form onSubmit={this.createUser} className="customerInfo">
                         
                         <h1>Sign up</h1>
                         <h4>Create a user account to view your orders</h4>
 
                         <label className="customer-name">Name:</label>
-                        <input type="text" onChange={this.handleNameChange}/>
+                        <input type="text"onChange={this.handleNameChange}/>
 
                         <label className="customer-name">User name:</label>
                         <input type="text" onChange={this.handleUserNameChange}/>
@@ -83,7 +83,8 @@ class Signup extends Component {
                         <label className="customer-name">Password:</label>
                         <input type="text" onChange={this.handlePasswordChange}/>
 
-                            
+                        <button type="submit" value="payNow">Create user</button>
+                         
                             </form>
                         
                         </div>
@@ -92,7 +93,7 @@ class Signup extends Component {
 
                         <br/>
 
-                            <button type="submit" value="payNow">Create user</button>
+                          
        
        
             </div>
