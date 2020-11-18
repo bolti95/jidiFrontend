@@ -281,3 +281,132 @@ a {
 /* .navContainer>.shop>.homeIcon {
   padding-left: 140px;
 } */
+
+/* -----CHECKOUT PAGE-------- */
+
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.checkoutInfo {
+  margin: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  /* width: 20%; */
+  justify-content: center;
+  width: 40%;
+  margin-left: 10%;
+  background-color: aliceblue;
+  /* margin-left: 50%; */
+}
+
+.checkoutTitle {
+  padding: 10px;
+  height: 50%;
+  /* margin-left: 10%; */
+  color: #ccc;
+  background-color: black;
+/* 
+  display: flex; */
+  justify-content: center;
+  padding: 10px 5px 10px 5px;
+  margin: 2% 2% 2% 2%;
+  font-weight: bold;
+
+  /* position: relative; */
+  border-radius: 10px;
+
+}
+
+.subText {
+  text-align: right;
+
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px 10px 5px;
+  margin: 2% 2% 2% 2%;
+  font-weight: bold;
+  height: 50%;
+
+  /* position: relative; */
+  border-radius: 10px;
+  background-color: lightskyblue;
+  color: black;
+
+}
+
+.nameContainer {
+
+}
+
+.emailContainer {
+
+}
+
+.inputContainer {
+  width: 100%;
+  height: 30%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.buttonContainer {
+    display: inline;
+}
+
+.pay {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px 10px 15px;
+  background-color: rgba(114, 110, 110, 0.3);
+  margin: 2% 40% 2% 40%;
+  font-weight: bold;
+  border: black;
+  position: relative;
+  border-radius: 10px;
+
+}
+
+
+.pay:hover {
+  transform: scale(1.1);
+  transition: transform .8s;
+  /* background-color: rgba(114, 110, 110, 0.4); */       /* GREY */
+  background-color: rgb(80, 189, 44);   
+  cursor:pointer;                /* GREEN */
+}
+
+.cancel {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px 10px 15px;
+  background-color: rgba(114, 110, 110, 0.3);
+  margin: 2% 40% 2% 40%;
+  font-weight: bold;
+  border: black;
+  position: relative;
+  border-radius: 10px;
+
+}
+
+.cancel:hover {
+  transform: scale(1.1);
+  transition: transform .8s;
+  background-color: red;  
+  cursor:pointer;               
+}
+
+
+/* create @ media queries */
