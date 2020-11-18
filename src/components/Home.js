@@ -12,7 +12,7 @@ import basketReducer from '../reducers/basketReducer';
 
 
 const addToBasket = (productName) => {
-
+console.log('added')
     fetch("http://localhost:3005/basket/add", {
         method: "POST",
         headers: {
