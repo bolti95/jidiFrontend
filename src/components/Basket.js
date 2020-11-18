@@ -11,6 +11,8 @@ import '../App.css';
 
 
 function Basket ({basketProps, productQuantity}) {
+
+
     console.log(basketProps)
 
     let productsInBasket = [];
@@ -22,7 +24,6 @@ function Basket ({basketProps, productQuantity}) {
             //productsInBasket is everything in the customer basket
         }
 
-        //need to know what items are in the basket to add
     })
 
     const productImages =(product) => {
@@ -39,6 +40,8 @@ function Basket ({basketProps, productQuantity}) {
             }     
     }
 
+
+
     console.log("My product is");
    
     //fragment is a fake place holder that needs importing
@@ -49,13 +52,14 @@ function Basket ({basketProps, productQuantity}) {
                 <div>
                     <img src={productImages(product)} alt="laptop" />
                     <span>{product.name}</span>
-
-                {/* <div className="price">£{product.price}</div> */}
                 <div className="quantity">
                     <span>{product.numbers}</span>
-                    <ion-icon onClick={() => productQuantity('decrease', product.tagName)}className="decrease" name="arrow-back-circle-outline"></ion-icon>
+                    
+                    <ion-icon onClick={() => productQuantity('decrease', product.tagName)}className="decrease" name={basketProps.decrease}></ion-icon>
+
                     <ion-icon onClick={() => productQuantity('increase', product.tagName)}className="increase" name="arrow-forward-circle-outline"></ion-icon>
-                <div className="total">£{product.numbers * product.price}</div>
+                <div className="total">£{Math.round(product.numbers * product.price)}</div>
+
 
                 </div>
                 </div>
@@ -70,19 +74,6 @@ function Basket ({basketProps, productQuantity}) {
 
         <div className="container-products">
 
-               {/* <div>
-                    <h5 className="basketTitle">Product</h5>
-               </div> 
-
-                <div>
-                    <h5 className="basketPrice">Price</h5>     
-                </div> 
-
-                <div>
-                    <h5 className="basketQuantity">Quantity</h5>
-                </div>  */}
-
-
                 <div className="product-header"> 
                     <div className="products">
 
@@ -94,7 +85,7 @@ function Basket ({basketProps, productQuantity}) {
         </div>
 
                 <div className="basketTotalContainer">
-                    <h4 className="basketTotalTitle">Basket Total: £ {basketProps.basketCost}</h4>
+                    <h4 className="basketTotalTitle">Basket Total: £ {parseFloat(basketProps.basketCost).toFixed(2)}</h4>
                     {/* <h4 className="basketTotal">{basketProps.basketCost}</h4> */}
                 </div>   
 
@@ -107,7 +98,7 @@ function Basket ({basketProps, productQuantity}) {
 
         </div>          
     </div>  
-        //  BASKET ITEMS  ////// 
+
     )
 }
 

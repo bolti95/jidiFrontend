@@ -93,6 +93,27 @@ class Checkout extends Component {
     //     // this.setState({});
     }
 
+    initialState = () => {
+        this.props.basketProps.productsInBasket = 0;
+        this.props.basketProps.basketCost = 0;
+        this.props.basketProps.basketNumbers = 0;
+  
+            this.setState({
+                customerName: '',
+                email: '',
+                cardNumber: '',
+                expiryDate: '',
+                cvc: '',
+                h1: '',
+                h2: '',
+                thankYou: '',
+                orderNumber:  '',
+                orderMessage: ''
+            })
+  
+
+    }
+
 
 
 
@@ -135,17 +156,17 @@ class Checkout extends Component {
                  h2: this.state.email,
                  thankYou: 'Thank you for your order!'
         })         
+        // setTimeout(function(){initialState()}, 5000)
+        setTimeout(function () {
+            window.location.reload();
+        }, 2800);
 
     }
 
+  
+
  
     render() {
-
-        console.log(this.state)
-
-
-        
-        console.log(this.props.basketProps.productsInBasket);
 
 
         return (
@@ -174,7 +195,7 @@ class Checkout extends Component {
 
 
                         <label className="sale-amount" ></label>
-                        <h1>Total Amount: £{this.props.basketCost}</h1>
+                        <h1>Total Amount: £{parseFloat(this.props.basketCost).toFixed(2)}</h1>
 
                         <br/>
 
