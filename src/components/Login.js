@@ -23,13 +23,11 @@ class Login extends Component {
         event.preventDefault()
 
 
-        let userLoggedIn = await fetch("http://localhost:3005/login/", { // watch this route, will need to be the same in the back
+        let userLoggedIn = await fetch("http://localhost:3005/login/authorised", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             }, 
-
-
             body: JSON.stringify({
     
                 userName: this.state.userName,
