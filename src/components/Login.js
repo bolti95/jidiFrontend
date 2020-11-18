@@ -31,7 +31,7 @@ class Login extends Component {
             body: JSON.stringify({
     
                 userName: this.state.userName,
-                userPassword: this.state.password
+                // userPassword: this.state.password
                 // password: 
                                           
                 // make sure these values are correct,,
@@ -45,22 +45,16 @@ class Login extends Component {
 
     render () {
         return (
-                    <div>
-                        <div classname="info">
-                        <form onSubmit={this.loginUser} className="customerInfo">
-                        
-                        <h1>Log In</h1>
-
-                        <label className="customer-name">User Name:</label>
-                        <input type="text" onChange={this.handleUserNameChange}/>
-
-                        <label className="customer-password">Password:</label>
-                        <input type="text" onChange={this.handlePasswordChange}/>
-
-                        <button type="submit" value="login">Log In</button>
-                         
-                        </form>
-                        
+                    <div className="loginContainer">
+                        <div classname="card">
+                            <form onSubmit={this.loginUser} className="inputContainer">                            
+                            <h1>Log In</h1>
+                            <label className="customer-name">User Name:</label>
+                            <input type="text" className="inputContainer" onChange={this.handleUserNameChange}/>
+                            <label className="customer-password">Password:</label>
+                            <input type="text" className="inputContainer" onChange={this.handlePasswordChange}/>
+                            <button type="submit" className="inputContainerLogin"  value="login">Log In</button>                            
+                            </form>
                         </div>
 
                     </div>

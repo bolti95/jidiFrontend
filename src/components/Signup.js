@@ -64,39 +64,30 @@ class Signup extends Component {
 
         return (
 
-                <div className="container">
-                    <div classname="info">
-                    <form onSubmit={this.createUser} className="customerInfo">
+                <div className="loginContainer">
+                    <div classname="card">
+                        <form onSubmit={this.createUser} className="inputContainer">
                         
-                        <h1>Sign up</h1>
-                        <h4>Create a user account to view your orders</h4>
+                            <h1>Sign up</h1>
+                            <h4 className="signupMessage">Create an account to view your orders</h4>
 
-                        <label className="customer-name">Name:</label>
-                        <input type="text"onChange={this.handleNameChange}/>
+                            <label className="customer-name">Name:</label>
+                            <input type="text" className="inputContainer" onChange={this.handleNameChange}/>
 
-                        <label className="customer-name">User Name:</label>
-                        <input type="text" onChange={this.handleUserNameChange}/>
+                            <label className="customer-name">User Name:</label>
+                            <input type="text" className="inputContainer"onChange={this.handleUserNameChange}/>
 
-                        <label className="customer-name">Email Address:</label>
-                        <input type="text" onChange={this.handleEmailChange}/>
+                            <label className="customer-name">Email Address:</label>
+                            <input type="text" className="inputContainer"onChange={this.handleEmailChange}/>
 
-                        <label className="customer-name">Password:</label>
-                        <input type="text" onChange={this.handlePasswordChange}/>
+                            <label className="customer-name">Password:</label>
+                            <input type="text" className="inputContainer"onChange={this.handlePasswordChange}/>
 
-                        <button type="submit" value="payNow">Create user</button>
-                         
-                            </form>
-                        
-                        </div>
-
-
-
-                        <br/>
-
-                          
-       
-       
-            </div>
+                            <button type="submit" value="payNow" className="inputContainerLogin">Create user</button>
+                            
+                        </form>                       
+                    </div>       
+                </div>
         )
     }
 }
