@@ -65,7 +65,7 @@ class Checkout extends Component {
         
         // console.log(this.basketProps.products.desktop.numbers)
 
-        let updateProducts = await fetch("https:/tryingher0ku.herokuapp.com/checkout/updateStockedProducts", { // watch this route, will need to be the same in the back
+        let updateProducts = await fetch("http://localhost:3005/checkout/updateStockedProducts", { // watch this route, will need to be the same in the back
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ class Checkout extends Component {
         console.log(this.props.basketProps.products.desktop.numbers)
 
 
-        let orderNumber = await fetch("https://tryingher0ku.herokuapp.com/checkout/create", { // watch this route, will need to be the same in the back
+        let orderNumber = await fetch("http://localhost:3005/checkout/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
