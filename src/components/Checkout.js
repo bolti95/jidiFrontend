@@ -217,9 +217,6 @@ class Checkout extends Component {
                                     <br></br>
                                     <p>{this.state.orderNumber}</p>
                             </div>
-
-
-
                 </div>
         )
     }
