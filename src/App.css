@@ -452,6 +452,11 @@ a {
   cursor:pointer;               
 }
 
+.thankyou {
+  width: 100px;
+  font-size: 20px;
+}
+
 
 /* ----SIGNUP PAGE  */
 
