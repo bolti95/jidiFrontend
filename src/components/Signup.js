@@ -35,7 +35,7 @@ class Signup extends Component {
 
 
 
-        let newUser = await fetch("http://localhost:3005/signup/create", { // watch this route, will need to be the same in the back
+        let newUser = await fetch("https://tryingher0ku.herokuapp.com/signup/create", { // watch this route, will need to be the same in the back
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
