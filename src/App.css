@@ -455,6 +455,8 @@ a {
 .thankyou {
   width: 100px;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 
