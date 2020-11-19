@@ -209,10 +209,10 @@ class Checkout extends Component {
                                          </div>
                                 </form>     
                                 <div className="thankyou">
-                                    <h2 >{this.state.thankYou}</h2>
-                                    <h1>{this.state.h1}</h1>
-                                    <h2>{this.state.h2}</h2>
-                                    <h2>{this.state.orderNumber}</h2>
+                                    <p >{this.state.thankYou}</p>
+                                    <p>{this.state.h1}</p>
+                                    <p>{this.state.h2}</p>
+                                    <p>{this.state.orderNumber}</p>
                             </div>
 
 
