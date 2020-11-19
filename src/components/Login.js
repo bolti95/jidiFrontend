@@ -14,8 +14,12 @@ class Login extends Component {
             userName: '',
             password: '',
             loggedIn: '',
+<<<<<<< HEAD
             logout: 'login',
             toDashboard: false
+=======
+            logout: 'logoin'
+>>>>>>> 3e3e3845ce1ac1c02c089ac3918bf06bd0199b97
         }
     }
 
