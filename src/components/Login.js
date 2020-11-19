@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/logout';
 
@@ -14,7 +14,8 @@ class Login extends Component {
             userName: '',
             password: '',
             loggedIn: '',
-            logout: 'login'
+            logout: 'login',
+            toDashboard: false
         }
     }
 
@@ -51,18 +52,20 @@ class Login extends Component {
         this.props.basketProps.logout = 'logout'
         this.setState({
             loggedIn: 'hello ' + this.state.userName + ' you are now logged in!',
-
-
-   })
+         })
+        
         // setTimeout(function () {
         //     window.location.reload();
         // }, 2800);  
         logout(this.state.logout);
-        
+        this.setState(() => ({toDashboard: true}))
     }
 
 
     render () {
+        if (this.state.toDashboard) {
+            return <Redirect to='/dashboard' />
+        }
         return (
                     <div className="loginContainer">
                         <div classname="card">
@@ -77,7 +80,7 @@ class Login extends Component {
                                     Remember me <input type="checkbox"></input>
                                     </label>   
                                 </form>
-                            <h2>{this.state.loggedIn}</h2>
+                        
                         </div>
 
                     </div>

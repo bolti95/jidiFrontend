@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import '../App.css';
 
 
@@ -8,7 +9,8 @@ class Signup extends Component {
         name: '',
         userName: '',
         email: '',
-        password: ''
+        password: '',
+        userCreated: false
     }
 
 
@@ -56,15 +58,16 @@ class Signup extends Component {
         });
         newUser = await newUser.json();
         console.log(newUser); 
-        setTimeout(function () {
-            window.location.reload();
-        }, 2800);  
+        this.setState(() => ({userCreated: true}))
+        // setTimeout(function () {
+        //     window.location.reload();
+        // }, 2800);  
     }
 
     render () {
-
-
-
+        if (this.state.userCreated) {
+            return <Redirect to='/usercreated' />
+        }
         return (
 
                 <div className="loginContainer">
