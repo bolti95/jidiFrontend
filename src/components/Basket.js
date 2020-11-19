@@ -49,9 +49,9 @@ function Basket ({basketProps, productQuantity}) {
         return (
             <Fragment key={index}>
 
-                <div>
-                    <img src={productImages(product)} alt="laptop" />
-                    <span>{product.name}</span>
+                    <div>
+                        <img src={productImages(product)} alt="laptop" />
+                        <span>{product.name}</span>
                 <div className="quantity">
                     <span>{product.numbers}</span>
                     
@@ -85,7 +85,7 @@ function Basket ({basketProps, productQuantity}) {
         </div>
 
                 <div className="basketTotalContainer">
-                    <h4 className="basketTotalTitle">Basket Total: £ {parseFloat(basketProps.basketCost).toFixed(2)}</h4>
+                    <p className="basketTotalTitle">Basket Total: £ {parseFloat(basketProps.basketCost).toFixed(2)}</p>
                     {/* <h4 className="basketTotal">{basketProps.basketCost}</h4> */}
                 </div>   
 

@@ -55,7 +55,10 @@ class Signup extends Component {
             })
         });
         newUser = await newUser.json();
-        console.log(newUser);   
+        console.log(newUser); 
+        setTimeout(function () {
+            window.location.reload();
+        }, 2800);  
     }
 
     render () {
@@ -84,7 +87,9 @@ class Signup extends Component {
                             <input type="text" className="inputContainer"onChange={this.handlePasswordChange}/>
 
                             <button type="submit" value="payNow" className="inputContainerLogin">Create user</button>
-                            
+                            <label>
+                            Remember me <input type="checkbox"></input>
+                            </label>
                         </form>                       
                     </div>       
                 </div>
