@@ -14,7 +14,7 @@ class Login extends Component {
             userName: '',
             password: '',
             loggedIn: '',
-            logout: 'logout'
+            logout: 'login'
         }
     }
 
