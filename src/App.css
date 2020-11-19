@@ -520,6 +520,16 @@ a {
   cursor:pointer;               
 }
 
+/* ----DASHBOARD */
+
+.dashboard {
+  text-align: center;
+  margin-top: 20%;
+
+}
+
+/* ----SIGNUPSUCCESS */
+
 
 /* create @ media queries */
 @media screen and (max-width: 1000px) {

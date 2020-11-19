@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/logout';
 
@@ -14,7 +14,18 @@ class Login extends Component {
             userName: '',
             password: '',
             loggedIn: '',
+<<<<<<< HEAD
+<<<<<<< HEAD
+            logout: 'login',
+            toDashboard: false
+=======
             logout: 'logoin'
+>>>>>>> 3e3e3845ce1ac1c02c089ac3918bf06bd0199b97
+=======
+            logout: 'login',
+            toDashboard: false
+
+>>>>>>> 1ced5743e9a40d1fb560b5fed1b2c7d65db45dd9
         }
     }
 
@@ -51,18 +62,20 @@ class Login extends Component {
         this.props.basketProps.logout = 'logout'
         this.setState({
             loggedIn: 'hello ' + this.state.userName + ' you are now logged in!',
-
-
-   })
+         })
+        
         // setTimeout(function () {
         //     window.location.reload();
         // }, 2800);  
         logout(this.state.logout);
-        
+        this.setState(() => ({toDashboard: true}))
     }
 
 
     render () {
+        if (this.state.toDashboard) {
+            return <Redirect to='/dashboard' />
+        }
         return (
                     <div className="loginContainer">
                         <div classname="card">
@@ -71,13 +84,13 @@ class Login extends Component {
                                     <label className="customer-name">User Name:</label>
                                     <input type="text" className="inputContainer" onChange={this.handleUserNameChange}/>
                                     <label className="customer-password">Password:</label>
-                                    <input type="text" className="inputContainer" onChange={this.handlePasswordChange}/>
+                                    <input type="password" name="password" className="inputContainer" onChange={this.handlePasswordChange}/>
                                     <button type="submit" className="inputContainerLogin"  value="login">{this.state.logout}</button>                            
                                     <label>
                                     Remember me <input type="checkbox"></input>
                                     </label>   
                                 </form>
-                            <h2>{this.state.loggedIn}</h2>
+                        
                         </div>
 
                     </div>
