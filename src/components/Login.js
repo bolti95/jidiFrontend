@@ -15,11 +15,17 @@ class Login extends Component {
             password: '',
             loggedIn: '',
 <<<<<<< HEAD
+<<<<<<< HEAD
             logout: 'login',
             toDashboard: false
 =======
             logout: 'logoin'
 >>>>>>> 3e3e3845ce1ac1c02c089ac3918bf06bd0199b97
+=======
+            logout: 'login',
+            toDashboard: false
+
+>>>>>>> 1ced5743e9a40d1fb560b5fed1b2c7d65db45dd9
         }
     }
 
