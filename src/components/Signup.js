@@ -86,7 +86,7 @@ class Signup extends Component {
                             <label className="customer-name">Password:</label>
                             <input type="text" className="inputContainer"onChange={this.handlePasswordChange}/>
 
-                            <button type="submit" value="payNow" className="inputContainerLogin">Create user</button>
+                            <button type="submit" value="payNow" className="inputContainerLogin">Click to Sign Up</button>
                             <label>
                             Remember me <input type="checkbox"></input>
                             </label>
