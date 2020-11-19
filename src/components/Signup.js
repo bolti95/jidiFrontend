@@ -84,7 +84,7 @@ class Signup extends Component {
                             <input type="text" className="inputContainer"onChange={this.handleEmailChange}/>
 
                             <label className="customer-name">Password:</label>
-                            <input type="password" className="inputContainer"onChange={this.handlePasswordChange}/>
+                            <input type="password" name="password" className="inputContainer"onChange={this.handlePasswordChange}/>
 
                             <button type="submit" value="payNow" className="inputContainerLogin">Create user</button>
                             <label>

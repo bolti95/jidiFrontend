@@ -71,7 +71,7 @@ class Login extends Component {
                                     <label className="customer-name">User Name:</label>
                                     <input type="text" className="inputContainer" onChange={this.handleUserNameChange}/>
                                     <label className="customer-password">Password:</label>
-                                    <input type="password" className="inputContainer" onChange={this.handlePasswordChange}/>
+                                    <input type="password" name="password" className="inputContainer" onChange={this.handlePasswordChange}/>
                                     <button type="submit" className="inputContainerLogin"  value="login">{this.state.logout}</button>                            
                                     <label>
                                     Remember me <input type="checkbox"></input>
