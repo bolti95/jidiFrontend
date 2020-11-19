@@ -176,12 +176,7 @@ class Checkout extends Component {
                         <h1 className="checkoutTitle">CHECKOUT</h1>
                             <h4 className="subText">Please fill out the form with the correct details</h4>
                         </div>
-                            <div className="thankyou">
-                                    <h2 >{this.state.thankYou}</h2>
-                                    <h1>{this.state.h1}</h1>
-                                    <h2>{this.state.h2}</h2>
-                                    <h2>{this.state.orderNumber}</h2>
-                            </div>
+
 
                                 <form className="checkoutInfo">
                                         <div className="info">
@@ -213,7 +208,12 @@ class Checkout extends Component {
                                             </div>
                                          </div>
                                 </form>     
-
+                                <div className="thankyou">
+                                    <h2 >{this.state.thankYou}</h2>
+                                    <h1>{this.state.h1}</h1>
+                                    <h2>{this.state.h2}</h2>
+                                    <h2>{this.state.orderNumber}</h2>
+                            </div>
 
 
 
