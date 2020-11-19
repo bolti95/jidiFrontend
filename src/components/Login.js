@@ -16,6 +16,7 @@ class Login extends Component {
             loggedIn: '',
             logout: 'login',
             toDashboard: false
+
         }
     }
 
