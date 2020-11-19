@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUANTITY, CANCEL_ORDER, SHOW_TOTAL } from '../actions/types';
+import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUANTITY, CANCEL_ORDER, SHOW_TOTAL, LOGOUT } from '../actions/types';
 
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
     basketNumbers: 0,
     basketCost: 0,
     productsInBasket: [],
+    logout: 'login',
     products: {
         desktop: {
 
@@ -160,6 +161,15 @@ export default (state = initialState, action) => {
                 basketCost: state.basketCost,
                 basketNumbers: state.basketNumbers
             }
+            case LOGOUT:
+                // productSelected = {...state.products[action.payload]}
+                state.logout = 'logout'
+                return {
+                    
+                    // ...state,
+                    logout:  'logout'
+
+                }
         default:
             return state;
     }

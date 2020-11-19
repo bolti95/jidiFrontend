@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { logout } from '../actions/logout';
 
 
 class Login extends Component {
+    constructor({props, basketProps}) {
+        
+        super();
 
-    state = {
-        userName: '',
-        password: ''
+        this.state = {
+            userName: '',
+            password: '',
+            loggedIn: '',
+            logout: 'logout'
+        }
     }
+
 
     handleUserNameChange = (event) => {
         this.setState({userName: event.target.value}); 
@@ -35,11 +43,22 @@ class Login extends Component {
                 // password: 
                                           
                 // make sure these values are correct,,
-          
+                
             })
         });
         userLoggedIn = await userLoggedIn.json();
-        console.log(userLoggedIn);   
+        console.log(userLoggedIn);
+        this.props.basketProps.logout = 'logout'
+        this.setState({
+            loggedIn: 'hello ' + this.state.userName + ' you are now logged in!',
+
+
+   })
+        // setTimeout(function () {
+        //     window.location.reload();
+        // }, 2800);  
+        logout(this.state.logout);
+        
     }
 
 
@@ -47,14 +66,18 @@ class Login extends Component {
         return (
                     <div className="loginContainer">
                         <div classname="card">
-                            <form onSubmit={this.loginUser} className="inputContainer">                            
-                            <h1>Log In</h1>
-                            <label className="customer-name">User Name:</label>
-                            <input type="text" className="inputContainer" onChange={this.handleUserNameChange}/>
-                            <label className="customer-password">Password:</label>
-                            <input type="text" className="inputContainer" onChange={this.handlePasswordChange}/>
-                            <button type="submit" className="inputContainerLogin"  value="login">Log In</button>                            
-                            </form>
+                                <form onSubmit={this.loginUser} className="inputContainer">                            
+                                <h1>Log In</h1>
+                                    <label className="customer-name">User Name:</label>
+                                    <input type="text" className="inputContainer" onChange={this.handleUserNameChange}/>
+                                    <label className="customer-password">Password:</label>
+                                    <input type="text" className="inputContainer" onChange={this.handlePasswordChange}/>
+                                    <button type="submit" className="inputContainerLogin"  value="login">{this.state.logout}</button>                            
+                                    <label>
+                                    Remember me <input type="checkbox"></input>
+                                    </label>   
+                                </form>
+                            <h2>{this.state.loggedIn}</h2>
                         </div>
 
                     </div>
@@ -63,4 +86,10 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+
+    basketProps: state.basketState   
+    //comes from our index.js combined reducer, everything comes from here
+});
+
+export default connect(mapStateToProps, {logout})(Login);
