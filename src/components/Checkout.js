@@ -210,8 +210,11 @@ class Checkout extends Component {
                                 </form>     
                                 <div className="thankyou">
                                     <p >{this.state.thankYou}</p>
+                                    <br></br>
                                     <p>{this.state.h1}</p>
+                                    <br></br>
                                     <p>{this.state.h2}</p>
+                                    <br></br>
                                     <p>{this.state.orderNumber}</p>
                             </div>
 
