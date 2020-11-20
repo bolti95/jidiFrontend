@@ -165,7 +165,7 @@ export default (state = initialState, action) => {
 
         case LOGOUT:
                 // productSelected = {...state.products[action.payload]}
-                if (state.logout = "login") {
+                if ({...state.logout[action.payload] === 'logout'}) {
                 state.logout = "logout"                   
                 }
 
