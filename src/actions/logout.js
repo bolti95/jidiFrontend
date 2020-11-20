@@ -1,12 +1,12 @@
 import { LOGOUT } from './types';
 
-export const logout = () => {
+export const logout = (action, logout) => {
     return (dispatch) => {
         console.log("logging in");
 
         dispatch({
-            type: LOGOUT,
-            payload: true
+            type: action === LOGOUT,
+            payload: 'logout'
         });
     }
 }

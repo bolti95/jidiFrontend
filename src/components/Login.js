@@ -14,7 +14,7 @@ class Login extends Component {
             userName: '',
             password: '',
             loggedIn: '',
-            logout: 'login',
+            logout: 'logout',
             toDashboard: false
         }
     }
@@ -57,7 +57,7 @@ class Login extends Component {
         // setTimeout(function () {
         //     window.location.reload();
         // }, 2800);  
-        this.props.logout();
+        this.props.logout('logout', this.state.logout);
         this.setState(() => ({toDashboard: true}))
     }
 
