@@ -5,7 +5,7 @@ export const logout = (action, logout) => {
         console.log("logging in");
 
         dispatch({
-            type: action,
+            type: action === logout,
             payload: 'logout'
         });
     }
