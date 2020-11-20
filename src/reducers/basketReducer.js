@@ -167,9 +167,7 @@ export default (state = initialState, action) => {
                 if (action.payload = logout) {
                 state.logout = 'logout'                    
                 }
-                else {
-                    state.logout = 'login'
-                }
+
 
                 return {
                     
