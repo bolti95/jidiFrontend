@@ -57,7 +57,7 @@ class Login extends Component {
         // setTimeout(function () {
         //     window.location.reload();
         // }, 2800);  
-        logout(this.state.logout);
+        logout();
         this.setState(() => ({toDashboard: true}))
     }
 

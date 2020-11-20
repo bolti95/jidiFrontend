@@ -161,9 +161,13 @@ export default (state = initialState, action) => {
                 basketCost: state.basketCost,
                 basketNumbers: state.basketNumbers
             }
-            case LOGOUT:
+
+        case LOGOUT:
                 // productSelected = {...state.products[action.payload]}
-                state.logout = 'logout'
+                if ([action.payload] = true) {
+                state.logout = 'logout'                    
+                }
+
                 return {
                     
                     // ...state,
