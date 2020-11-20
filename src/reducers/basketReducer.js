@@ -3,10 +3,10 @@ import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUA
 
 const initialState = {
     decrease: "arrow-back-circle-outline",
+    logout: "login",
     basketNumbers: 0,
     basketCost: 0,
     productsInBasket: [],
-    logout: 'login',
     products: {
         desktop: {
 
@@ -165,9 +165,8 @@ export default (state = initialState, action) => {
         case LOGOUT:
                 // productSelected = {...state.products[action.payload]}
                 if (action.payload = logout) {
-                state.logout = 'logout'                    
+                state.logout = "logout"                   
                 }
-
 
                 return {
                     
