@@ -173,7 +173,7 @@ export default (state = initialState, action) => {
                 return {
                     
                     // ...state,
-                    // ...state,
+                    ...state,
                     login: 'logout',
                     basketCost: state.basketCost,
                     basketNumbers: state.basketNumbers,
