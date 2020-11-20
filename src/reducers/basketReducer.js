@@ -171,6 +171,7 @@ export default (state = initialState, action) => {
                 return {
                     
                     // ...state,
+                    ...state,
                     logout:  'logout'
 
                 }
