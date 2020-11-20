@@ -49,7 +49,7 @@ class Login extends Component {
         });
         userLoggedIn = await userLoggedIn.json();
         console.log(userLoggedIn);
-        this.props.basketProps.logout = 'logout'
+        // this.props.basketProps.logout = 'logout'
         this.setState({
             loggedIn: 'hello ' + this.state.userName + ' you are now logged in!',
          })
