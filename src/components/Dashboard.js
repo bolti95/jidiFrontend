@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
-import { addBasket } from '../actions/addAction';
 
 
 
