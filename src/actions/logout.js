@@ -6,7 +6,7 @@ export const logout = (action, logout) => {
 
         dispatch({
             type: action === logout,
-            payload: logout
+            payload: true
         });
     }
 }
