@@ -12,7 +12,7 @@ import '../App.css';
 
 function Basket ({basketProps, productQuantity}) {
 
-
+    basketProps = state.basketState
     console.log(basketProps)
 
     let productsInBasket = [];
