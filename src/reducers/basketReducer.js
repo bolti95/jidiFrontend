@@ -1,3 +1,4 @@
+import { logout } from '../actions/logout';
 import { ADD_PRODUCT_BASKET, DECREASE_QUANTITY, GET_NUMBERS_BASKET, INCREASE_QUANTITY, CANCEL_ORDER, SHOW_TOTAL, LOGOUT } from '../actions/types';
 
 
@@ -172,6 +173,7 @@ export default (state = initialState, action) => {
                     
                     // ...state,
                     // ...state,
+                    logout : "logout";
                     basketCost: state.basketCost,
                     basketNumbers: state.basketNumbers,
         
