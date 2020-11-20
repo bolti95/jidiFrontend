@@ -172,6 +172,8 @@ export default (state = initialState, action) => {
                     
                     // ...state,
                     ...state,
+                    basketCost: state.basketCost,
+                    basketNumbers: state.basketNumbers,
                     logout:  'logout'
 
                 }
