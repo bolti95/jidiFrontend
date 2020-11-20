@@ -211,7 +211,7 @@ class Checkout extends Component {
                                 <div className="thankyou">
                                     <p >{this.state.thankYou}</p>
                                     <p>{this.state.h1}</p>
-                                    <p>Your order number is</p>
+                                    <p>{this.state.orderMessage}</p>
                                     <p>{this.state.orderNumber}</p>
                             </div>
                 </div>
