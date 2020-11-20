@@ -162,27 +162,40 @@ export default (state = initialState, action) => {
                 basketCost: state.basketCost,
                 basketNumbers: state.basketNumbers
             }
-
-        case LOGOUT:
+            case LOGOUT:
                 // productSelected = {...state.products[action.payload]}
-                logout = "logout"
-                if (action.payload !== true) {
-                state.logout = "logout"                   
-                }
-
+                state.logout = 'logout'
                 return {
                     
                     // ...state,
                     ...state,
-                    login: 'logout',
                     basketCost: state.basketCost,
                     basketNumbers: state.basketNumbers,
-        
+                    logout:  'logout'
 
                 }
+
         default:
             return state;
     }
 
 }
+
+        // case LOGOUT:
+        //         // productSelected = {...state.products[action.payload]}
+        //         logout = "logout"
+        //         if (action.payload === true) {
+        //         state.logout = "logout"                   
+        //         }
+
+        //         return {
+                    
+        //             // ...state,
+        //             ...state,
+        //             login: 'logout',
+        //             basketCost: state.basketCost,
+        //             basketNumbers: state.basketNumbers,
+        
+
+        //         }
 
